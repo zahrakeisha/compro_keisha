@@ -1,27 +1,27 @@
 <!-- Navbar Start -->
 <nav class="navbar">
-    <a href="#" class="navbar-logo">PT Usaha Jaya Prima <span> Karya </span> </a>
+    <a href="/" class="navbar-logo">PT Usaha Jaya Prima <span>Karya</span></a>
 
     <div class="navbar-nav">
-    <a href="/">Home</a>
-    <a href="/aboutme">About Me</a>
-    <a href="/visi_misi">Visi Misi</a>
+        <a href="/" class="{{ request()->is('/') ? 'active' : '' }}">Home</a>
+        <a href="/aboutme" class="{{ request()->is('aboutme') ? 'active' : '' }}">About</a>
+        <a href="/visi_misi" class="{{ request()->is('visi_misi') ? 'active' : '' }}">Visi &amp; Misi</a>
 
-    <!-- SERVICE DROPDOWN -->
-    <div class="nav-item service">
-    <a href="#" class="service-link">Service ▼</a>
-    <ul class="drop-down">
-        @foreach($services as $service)
-        <li>
-            <a href="">{{ $service->title }}</a>
-        </li>
-        @endforeach
-    </ul>
+        <!-- Service Dropdown -->
+        <div class="nav-item service">
+            <a href="#" class="service-link">Layanan ▾</a>
+            <ul class="drop-down">
+                @foreach($services as $service)
+                <li>
+                    <a href="">{{ $service->title }}</a>
+                </li>
+                @endforeach
+            </ul>
+        </div>
+
+        <a href="/blogger" class="{{ request()->is('blogger*') ? 'active' : '' }}">Blog</a>
+        <a href="/contactsfront" class="{{ request()->is('contactsfront') ? 'active' : '' }}">Kontak</a>
     </div>
-    <a href="/blogger">Blogs</a>
-    <a href="/contactsfront">Contact</a>
-</div>
-
 
     <div class="navbar-extra">
         <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
