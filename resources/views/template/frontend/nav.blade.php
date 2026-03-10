@@ -4,7 +4,7 @@
 
     <div class="navbar-nav">
         <a href="/" class="{{ request()->is('/') ? 'active' : '' }}">Home</a>
-        <a href="/aboutme" class="{{ request()->is('aboutme') ? 'active' : '' }}">About</a>
+        <a href="/aboutme" class="{{ request()->is('aboutme') ? 'active' : '' }}">About Us</a>
         <a href="/visi_misi" class="{{ request()->is('visi_misi') ? 'active' : '' }}">Visi &amp; Misi</a>
 
         <!-- Service Dropdown -->

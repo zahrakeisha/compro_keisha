@@ -16,10 +16,11 @@ class CreateContactinfoTable extends Migration
         Schema::create('contactinfo', function (Blueprint $table) {
             $table->bigIncrements('contactfo_id');
             $table->string('name');
-            $table->string('gmaps');
+            $table->text('gmaps');
             $table->string('email');
             $table->string('phone');
             $table->text('address');
+            $table->boolean('status')->default(0);
             $table->timestamps();
         });
     }

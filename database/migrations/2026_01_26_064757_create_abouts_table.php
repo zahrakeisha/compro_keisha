@@ -18,11 +18,8 @@ class CreateAboutsTable extends Migration
             $table->string('name');
             $table->string('logo')->nullable();
             $table->text('description');
-            $table->string('image')->nullable();;
-            $table->string('email');
-            $table->text('address');
-            $table->string('telpon');
-            $table->string('maps_embed');
+            $table->string('image')->nullable();
+            $table->boolean('status')->default(0);
             $table->timestamps();
         });
     }

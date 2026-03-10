@@ -15,7 +15,7 @@
                     <input type="text" name="name" id="name" class="form-control">
                 </div>
                 <div class="mb-3">
-                    <label for="logo" class="form-tabel">Logo</label>
+                    <label for="logo" class="form-tabel">Direktur Utama</label>
                     <input type="file" name="logo" id="logo" class="form-control">
                 </div>
                 <div class="mb-3">
@@ -23,24 +23,8 @@
                     <textarea name="description" id="description" class="form-control"></textarea>
                 </div>
                 <div class="mb-3">
-                    <label for="image" class="form-tabel">image</label>
+                    <label for="image" class="form-tabel">Structure Organization</label>
                     <input type="file" name="image" id="image" class="form-control">
-                </div>
-                <div class="mb-3">
-                    <label for="email" class="form-tabel">Email</label>
-                    <input type="email" name="email" id="email" class="form-control">
-                </div>
-                <div class="mb-3">
-                    <label for="address" class="form-tabel">Address</label>
-                    <textarea name="address" id="address" class="form-control"></textarea>
-                </div>
-                <div class="mb-3">
-                    <label for="telpon" class="form-tabel">Phone number</label>
-                    <input type="text" name="telpon" id="telpon" class="form-control">
-                </div>
-                <div class="mb-3">
-                    <label for="maps" class="form-tabel">Maps</label>
-                    <input type="text" name="maps" id="maps" class="form-control">
                 </div>
             </div>
             <div class="card-footer">

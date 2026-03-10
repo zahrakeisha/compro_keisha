@@ -53,6 +53,8 @@ Route::post('/about', [AboutController::class, 'store'])->name('about.store');
 Route::get('/about/{id}/edit', [AboutController::class, 'edit'])->name('about.edit');
 Route::put('/about/{id}', [AboutController::class, 'update'])->name('about.update');
 Route::delete('/about/{id}', [AboutController::class, 'destroy'])->name('about.destroy');
+Route::get('/about/{id}/active', [AboutController::class, 'active'])->name('about.active');
+Route::get('/about/{id}/nonactive', [AboutController::class, 'nonactive'])->name('about.nonactive');
 
 
 //route service ADMIN
@@ -114,6 +116,8 @@ Route::post('/contactinfo', [ContactinfoController::class, 'store'])->name('cont
 Route::get('/contactinfo/{id}/edit', [ContactinfoController::class, 'edit'])->name('contactinfo.edit');
 Route::put('/contactinfo/{id}', [ContactinfoController::class, 'update'])->name('contactinfo.update');
 Route::delete('/contactinfo/{id}', [ContactinfoController::class, 'destroy'])->name('contactinfo.destroy');
+Route::get('/contactinfo/{id}/active', [ContactinfoController::class, 'active'])->name('contactinfo.active');
+Route::get('/contactinfo/{id}/nonactive', [ContactinfoController::class, 'nonactive'])->name('contactinfo.nonactive');
 
 //route organization
 Route::get('/organization', [OrganizationController::class, 'index'])->name('organization.index');
@@ -130,6 +134,8 @@ Route::post('/visions', [VisionsController::class, 'store'])->name('visions.stor
 Route::get('/visions/{id}/edit', [VisionsController::class, 'edit'])->name('visions.edit');
 Route::put('/visions/{id}', [VisionsController::class, 'update'])->name('visions.update');
 Route::delete('/visions/{id}', [VisionsController::class, 'destroy'])->name('visions.destroy');
+Route::get('/visions/{id}/active', [VisionsController::class, 'active'])->name('visions.active');
+Route::get('/visions/{id}/nonactive', [VisionsController::class, 'nonactive'])->name('visions.nonactive');
 
 //route slider
 Route::get('/sliders', [SlidersController::class, 'index'])->name('sliders.index');

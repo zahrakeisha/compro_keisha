@@ -14,11 +14,8 @@
             <th>Name</th>
             <th>Logo</th>
             <th>Description</th>
-            <th>image</th>
-            <th>Email</th>
-            <th>Address</th>
-            <th>Telpon</th>
-            <th>Maps</th>
+            <th>Image</th>
+            <th>Status</th>
             <th>
                 <a href="{{ route('about.create') }}" class="btn btn-primary btn-sm">+ Add About us</a>
             </th>
@@ -44,10 +41,18 @@
                 -
                 @endif
             </td>
-            <td>{{ $v->email }}</td>
-            <td>{{ $v->address }}</td>
-            <td>{{ $v->telpon }}</td>
-            <td>{{ $v->maps_embed }}</td>
+            <td>
+                @if($v->status == 1)
+                <a href="{{ route('about.nonactive',$v->about_id) }}" class="btn btn-danger btn-sm">
+                Nonactive
+                </a>
+                @else
+                <a href="{{ route('about.active',$v->about_id) }}" class="btn btn-success btn-sm">
+                Active
+                </a>
+                @endif
+            </td>
+
             <td>
                 <form action ="{{ route('about.destroy', $v->about_id) }}" method="POST" style="display:inline">
                     {{ csrf_field() }}

@@ -8,5 +8,5 @@ class About extends Model
 {
     protected $table='abouts';
     protected $primaryKey='about_id';
-    protected $fillable=['name', 'logo', 'description', 'image', 'email', 'address', 'telpon', 'maps_embed'];
+    protected $fillable=['name', 'logo', 'description', 'image', 'status'];
 }

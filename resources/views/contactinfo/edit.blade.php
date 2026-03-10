@@ -16,7 +16,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="gmaps" class="form-label">Gmaps</label>
-                    <input type="text" name="gmaps" id="gmaps" class="form-control" value="{{$contactinfo->gmaps}}">
+                    <textarea type="text" name="gmaps" id="gmaps" class="form-control" value="{{$contactinfo->gmaps}}"></textarea>
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
@@ -28,7 +28,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="address" class="form-label">Address</label>
-                    <input type="text" name="address" id="address" class="form-control" value="{{$contactinfo->address}}">
+                    <textarea type="text" name="address" id="address" class="form-control" value="{{$contactinfo->address}}"></textarea>
                 </div>
             </div>
             <div class="card-footer">

@@ -49,6 +49,24 @@ class VisionsController extends Controller
         return redirect()->route('visions.index');
     }
 
+    public function active($id)
+    {
+        Visions::where('vs_id',$id)->update([
+            'status' => 1
+        ]);
+
+        return back();
+    }
+
+    public function nonactive($id)
+    {
+        Visions::where('vs_id',$id)->update([
+            'status' => 0
+        ]);
+
+        return back();
+    }
+
     /**
      * Display the specified resource.
      *

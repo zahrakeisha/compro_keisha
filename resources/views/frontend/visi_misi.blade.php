@@ -7,7 +7,7 @@
 
         <div class="vm-card">
             <h2>Visi</h2>
-            <p>{{ $visi->content }}</p>
+            <p>{{ $vision->content }}</p>
         </div>
 
         <div class="vm-card">

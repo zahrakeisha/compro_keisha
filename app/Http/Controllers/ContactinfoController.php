@@ -37,7 +37,7 @@ class ContactinfoController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255|unique:contactinfo',
+            'name' => 'required|string|max:255',
             'gmaps' => 'required|string',
             'email' => 'required',
             'phone' => 'required|string',
@@ -86,7 +86,7 @@ class ContactinfoController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'name' => 'required|string|max:255|unique:contactinfo',
+            'name' => 'required|string|max:255',
             'gmaps' => 'required|string',
             'email' => 'required',
             'phone' => 'required|string',
@@ -113,5 +113,23 @@ class ContactinfoController extends Controller
     {
         Contactinfo::where('contactfo_id', $id)->delete();
         return redirect()->route('contactinfo.index');
+    }
+    
+    public function active($id)
+    {
+        Contactinfo::where('contactfo_id',$id)->update([
+            'status' => 1
+        ]);
+
+        return back();
+    }
+
+    public function nonactive($id)
+    {
+        Contactinfo::where('contactfo_id',$id)->update([
+            'status' => 0
+        ]);
+
+        return back();
     }
 }

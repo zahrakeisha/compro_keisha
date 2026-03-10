@@ -17,6 +17,7 @@
             <th>Email</th>
             <th>Phone</th>
             <th>Address</th>
+            <th>Status</th>
             <th>
                 Action
             </th>
@@ -31,6 +32,18 @@
             <td>{{ $v->email }}</td>
             <td>{{ $v->phone }}</td>
             <td>{{ $v->address }}</td>
+            <td>
+                @if($v->status == 1)
+                <a href="{{ route('contactinfo.nonactive',$v->contactfo_id) }}" class="btn btn-danger btn-sm">
+                Nonactive
+                </a>
+                @else
+                <a href="{{ route('contactinfo.active',$v->contactfo_id) }}" class="btn btn-success btn-sm">
+                Active
+                </a>
+                @endif
+            </td>
+
             <td>
                 <form action ="{{ route('contactinfo.destroy', $v->contactfo_id) }}" method="POST" style="display:inline">
                     {{ csrf_field() }}

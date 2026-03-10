@@ -13,6 +13,7 @@
             <th>No</th>
             <th>Type</th>
             <th>Content</th>
+            <th>status</th>
             <th>
                 <a href="{{ route('visions.create') }}" class="btn btn-primary btn-sm">+ Add</a>
             </th>
@@ -24,6 +25,17 @@
             <td>{{ $loop->iteration}}</td>
             <td>{{ $v->type }}</td>
             <td>{{ $v->content }}</td>
+            <td>
+                @if($v->status == 1)
+                <a href="{{ route('visions.nonactive',$v->vs_id) }}" class="btn btn-danger btn-sm">
+                Nonactive
+                </a>
+                @else
+                <a href="{{ route('visions.active',$v->vs_id) }}" class="btn btn-success btn-sm">
+                Active
+                </a>
+                @endif
+            </td>
             <td>
                 <form action ="{{ route('visions.destroy', $v->vs_id) }}" method="POST" style="display:inline">
                     {{ csrf_field() }}

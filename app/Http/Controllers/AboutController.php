@@ -41,10 +41,6 @@ class AboutController extends Controller
             'logo'=> 'nullable|image|mimes:jpg,jpeg,png|max:2048',
             'description'=>'required|string',
             'image'=> 'nullable|image|mimes:jpg,jpeg,png|max:2048',
-            'email'=> 'required|string',
-            'address'=> 'required|string',
-            'telpon'=> 'required|string',
-            'maps'=> 'required|string',
         ]);
 
 
@@ -62,10 +58,6 @@ class AboutController extends Controller
             'logo'=> $logo,
             'description'=>$request->description,
             'image'=>$image,
-            'email'=>$request->email,
-            'address'=>$request->address,
-            'telpon'=>$request->telpon,
-            'maps_embed'=>$request->maps,
         ]);
         return redirect()->route('about.index');
     }
@@ -107,10 +99,6 @@ class AboutController extends Controller
             'logo'=> 'nullable|image|mimes:jpg,jpeg,png|max:2048',
             'description'=>'required|string',
             'image'=> 'nullable|image|mimes:jpg,jpeg,png|max:2048',
-            'email'=> 'required|string',
-            'address'=> 'required|string',
-            'telpon'=> 'required|string',
-            'maps'=> 'required|string',
         ]);
 
         $abouts = About::findOrFail($id);
@@ -139,10 +127,6 @@ class AboutController extends Controller
             'logo'=> $logo,
             'description'=>$request->description,
             'image'=>$image,
-            'email'=>$request->email,
-            'address'=>$request->address,
-            'telpon'=>$request->telpon,
-            'maps_embed'=>$request->maps,
         ]);
 
         return redirect()->route('about.index');
@@ -159,4 +143,23 @@ class AboutController extends Controller
         About::where('about_id', $id)->delete();
         return redirect()->route('about.index');
     }
+    public function active($id)
+    {
+        About::where('about_id',$id)->update([
+            'status' => 1
+        ]);
+
+        return back();
+    }
+
+    public function nonactive($id)
+    {
+        About::where('about_id',$id)->update([
+            'status' => 0
+        ]);
+
+        return back();
+    }
+    
+    
 }

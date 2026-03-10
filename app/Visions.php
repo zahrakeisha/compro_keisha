@@ -8,5 +8,5 @@ class Visions extends Model
 {
     protected $table = 'visions_missions';
     protected $primaryKey = 'vs_id';
-    protected $fillable = ['type', 'content'];
+    protected $fillable = ['type', 'content', 'status'];
 }
