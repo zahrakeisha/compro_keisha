@@ -1,6 +1,9 @@
 <!-- Navbar Start -->
 <nav class="navbar">
-    <a href="/" class="navbar-logo">PT Usaha Jaya Prima <span>Karya</span></a>
+    <a href="/" class="navbar-logo">
+        <img src="{{ asset('images/logo-pt.png') }}" alt="Logo PT UJPK" class="navbar-logo-img">
+        PT Usaha Jaya Prima <span>Karya</span>
+    </a>
 
     <div class="navbar-nav">
         <a href="/" class="{{ request()->is('/') ? 'active' : '' }}">Home</a>
