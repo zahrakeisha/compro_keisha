@@ -8,5 +8,5 @@ class Sliders extends Model
 {
     protected $table ='home_sliders';
     protected $primaryKey ='sliders_id';
-    protected $fillable =['title', 'image', 'description'];
+    protected $fillable =['title', 'image', 'description', 'status'];
 }

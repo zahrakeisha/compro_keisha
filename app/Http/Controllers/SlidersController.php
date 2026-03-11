@@ -125,4 +125,22 @@ class SlidersController extends Controller
         Sliders::where('sliders_id', $id)->delete();
         return redirect()->route('sliders.index');
     }
+
+    public function active($id)
+    {
+        Sliders::where('sliders_id',$id)->update([
+            'status' => 1
+        ]);
+
+        return back();
+    }
+
+    public function nonactive($id)
+    {
+        Sliders::where('sliders_id',$id)->update([
+            'status' => 0
+        ]);
+
+        return back();
+    }
 }

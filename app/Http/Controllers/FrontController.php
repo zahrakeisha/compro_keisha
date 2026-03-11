@@ -9,6 +9,7 @@ use App\Visions;
 use App\Blogs;
 use App\Contactinfo;
 use App\Marketing;
+use App\Sliders;
 
 
 
@@ -17,7 +18,8 @@ class FrontController extends Controller
     public function index()
     {
         $services = Services::all();
-        return view('frontend.home', compact('services'));
+        $sliders = Sliders::where('status', 1)->get();
+        return view('frontend.home', compact('services', 'sliders'));
     }
 
     public function about()
@@ -54,5 +56,12 @@ class FrontController extends Controller
         $contacts = Contactinfo::where('status',1)->first();
         $services = Services::all();
         return view('frontend.contact', compact('services','contacts', 'marketings'));
+    }
+
+    public function servicedetail($id)
+    {
+        $servicesdetail = Services::findOrFail($id);
+        $services = Services::all();
+        return view('frontend.service_detail', compact('services', 'servicesdetail'));
     }
 }

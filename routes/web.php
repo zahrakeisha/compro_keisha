@@ -35,6 +35,7 @@ Route::get('/visi_misi', [FrontController::class, 'visi']);
 Route::get('/blogger', [FrontController::class, 'blog']);
 Route::get('/blogger/{id}', [FrontController::class, 'blogsDetail'])->name('blogs.detail');
 Route::get('/contactsfront', [FrontController::class, 'contacts']);
+Route::get('/servicedetail/{id}', [FrontController::class, 'servicedetail'])->name('service.detail');
 
 
 
@@ -144,6 +145,8 @@ Route::post('/sliders', [SlidersController::class, 'store'])->name('sliders.stor
 Route::get('/sliders/{id}/edit', [SlidersController::class, 'edit'])->name('sliders.edit');
 Route::put('/sliders/{id}', [SlidersController::class, 'update'])->name('sliders.update');
 Route::delete('/sliders/{id}', [SlidersController::class, 'destroy'])->name('sliders.destroy');
+Route::get('/sliders/{id}/active', [SlidersController::class, 'active'])->name('sliders.active');
+Route::get('/sliders/{id}/nonactive', [SlidersController::class, 'nonactive'])->name('sliders.nonactive');
 
 //route visitor
 Route::get('/visitor', [VisitorController::class, 'index'])->name('visitor.index');

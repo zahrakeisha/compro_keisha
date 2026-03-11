@@ -14,6 +14,7 @@
             <th>Title</th>
             <th>Image</th>
             <th>Description</th>
+            <th>Status</th>
             <th>
                 <a href="{{ route('sliders.create') }}" class="btn btn-primary btn-sm">+ Add Sliders</a>
             </th>
@@ -28,6 +29,17 @@
                 <img src="{{ asset('storage/'.$v->image) }}" width="60">
             </td>
             <td>{{ $v->description }}</td>
+            <td>
+                @if($v->status == 1)
+                <a href="{{ route('sliders.nonactive',$v->sliders_id) }}" class="btn btn-danger btn-sm">
+                Nonactive
+                </a>
+                @else
+                <a href="{{ route('sliders.active',$v->sliders_id) }}" class="btn btn-success btn-sm">
+                Active
+                </a>
+                @endif
+            </td>
             <td>
                 <form action ="{{ route('sliders.destroy', $v->sliders_id) }}" method="POST" style="display:inline">
                     {{ csrf_field() }}

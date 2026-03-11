@@ -21,7 +21,6 @@
     <div class="hero-content">
         <h1>PT Usaha Jaya Prima <span>Karya</span></h1>
         <p>Solusi Profesional untuk Kebutuhan Bisnis &amp; Teknologi Anda.</p>
-        <a href="/contactsfront" class="cta">Hubungi Kami</a>
     </div>
 
 </section>

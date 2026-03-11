@@ -9,18 +9,18 @@
 
         <!-- Service Dropdown -->
         <div class="nav-item service">
-            <a href="#" class="service-link">Layanan ▾</a>
+            <a href="#" class="service-link">Our Service ▾</a>
             <ul class="drop-down">
                 @foreach($services as $service)
                 <li>
-                    <a href="">{{ $service->title }}</a>
+                    <a href="{{ route('service.detail', $service->service_id) }}">{{ $service->title }}</a>
                 </li>
                 @endforeach
             </ul>
         </div>
 
-        <a href="/blogger" class="{{ request()->is('blogger*') ? 'active' : '' }}">Blog</a>
-        <a href="/contactsfront" class="{{ request()->is('contactsfront') ? 'active' : '' }}">Kontak</a>
+        <a href="/blogger" class="{{ request()->is('blogger*') ? 'active' : '' }}">Blogs</a>
+        <a href="/contactsfront" class="{{ request()->is('contactsfront') ? 'active' : '' }}">Contact us</a>
     </div>
 
     <div class="navbar-extra">
