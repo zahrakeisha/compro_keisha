@@ -15,11 +15,11 @@
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
-                    <input type="email" name="email" id="name" class="form-control">
+                    <input type="email" name="email" id="email" class="form-control">
                 </div>
                 <div class="mb-3">
-                    <label for="massage" class="form-label">Message</label>
-                    <input type="text" name="message" id="name" class="form-control">
+                    <label for="message" class="form-label">Message</label>
+                    <input type="text" name="message" id="message" class="form-control">
                 </div>
             </div>
             <div class="card-footer">

@@ -36,6 +36,24 @@
             <h3>Office</h3>
             <p>{{ $contacts->address }}</p>
         </div>
+        
+        <div class="contact-form">
+            <h3>Kirim Pesan</h3>
+            <form action="{{ route('contact.store') }}" method="POST">
+            {{csrf_field()}}
+            <div class="mb-3">
+                <input type="text" name="name" placeholder="Nama">
+            </div>
+            <div class="mb-3">
+                <input type="email" name="email" placeholder="Email">
+            </div>
+            <div class="mb-3">
+                <input type="text" name="message" placeholder="Pesan">
+            </div>
+            <button type="submit">Kirim</button>
+            </form>
+        </div>
+
     </div>
 </section>
 
