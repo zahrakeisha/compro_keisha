@@ -1,27 +1,19 @@
 @extends('template/frontend/layoutfront')
 @section('content')
 
- <section class="adn-section">
-    <div class="adn-header">
+<section class="service-section">
+    <div class="service-header">
         <h2>{{ $servicesdetail->title }}</h2>
     </div>
 
-    <div class="festival-wrapper">
-        <div class="festival-image">
+    <div class="service-wrapper">
+        <div class="service-image">
             <img src="{{ asset('storage/'.$servicesdetail->image) }}" alt="{{ $servicesdetail->title }}">
         </div>
-    </div>
-    
-
-    <div class="adn-content">
-        <!-- bagian kiri -->
-         <div class="adn-text">
-            <p> 
-                {{ $servicesdetail->description }}
-            </p>
-         </div>
+        <div class="service-text">
+            <p>{{ $servicesdetail->description }}</p>
+        </div>
     </div>
 </section>
 
 @endsection
-
