@@ -40,80 +40,78 @@
 
     // SLIDER
 
-document.addEventListener("DOMContentLoaded", function(){
+    document.addEventListener("DOMContentLoaded", function(){
 
-const slides = document.querySelectorAll(".slide");
-const dots = document.querySelectorAll(".dot");
+    const slides = document.querySelectorAll(".slide");
+    const dots = document.querySelectorAll(".dot");
 
-let index = 0;
+    let index = 0;
 
-function showSlide(i){
+    function showSlide(i){
 
-slides.forEach(slide => slide.classList.remove("active"));
-dots.forEach(dot => dot.classList.remove("active"));
+    slides.forEach(slide => slide.classList.remove("active"));
+    dots.forEach(dot => dot.classList.remove("active"));
 
-slides[i].classList.add("active");
-dots[i].classList.add("active");
-
-index = i;
-
-}
+    slides[i].classList.add("active");
+    dots[i].classList.add("active");
+    index = i;
+    }
 
 
-// AUTO SLIDE
-setInterval(function(){
+    // AUTO SLIDE
+    setInterval(function(){
 
-index++;
+    index++;
 
-if(index >= slides.length){
-index = 0;
-}
+    if(index >= slides.length){
+    index = 0;
+    }
 
-showSlide(index);
+    showSlide(index);
 
-}, 4000);
-
-
-// PANAH NEXT
-document.querySelector(".next").addEventListener("click", function(){
-
-index++;
-
-if(index >= slides.length){
-index = 0;
-}
-
-showSlide(index);
-
-});
+    }, 4000);
 
 
-// PANAH PREV
-document.querySelector(".prev").addEventListener("click", function(){
+    // PANAH NEXT
+    document.querySelector(".next").addEventListener("click", function(){
 
-index--;
+    index++;
 
-if(index < 0){
-index = slides.length - 1;
-}
+    if(index >= slides.length){
+    index = 0;
+    }
 
-showSlide(index);
+    showSlide(index);
 
-});
+    });
 
 
-// DOT CLICK
-dots.forEach((dot,i)=>{
+    // PANAH PREV
+    document.querySelector(".prev").addEventListener("click", function(){
 
-dot.addEventListener("click", function(){
+    index--;
 
-showSlide(i);
+    if(index < 0){
+    index = slides.length - 1;
+    }
 
-});
+    showSlide(index);
 
-});
+    });
 
-});
+
+    // DOT CLICK
+    dots.forEach((dot,i)=>{
+
+    dot.addEventListener("click", function(){
+
+    showSlide(i);
+
+    });
+
+    });
+
+    });
 
 </script>
 

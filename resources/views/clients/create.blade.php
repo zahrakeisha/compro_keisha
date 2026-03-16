@@ -41,16 +41,3 @@
     </div>
 </div>
 @endsection
-
-
-
-
-    
-    <br>
-    
-    <br>
-    
-    <br>
-    
-    <br>
-    

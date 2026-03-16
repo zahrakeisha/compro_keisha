@@ -59,19 +59,18 @@
     <div class="mitra-track-wrapper">
         <div class="mitra-track">
             <!-- Logo mitra -->
-            <div class="mitra-logo"><img src="{{ asset('images/mitra/logo1.png') }}" alt="Mitra 1"></div>
-            <div class="mitra-logo"><img src="{{ asset('images/mitra/logo2.png') }}" alt="Mitra 2"></div>
-            <div class="mitra-logo"><img src="{{ asset('images/mitra/logo3.png') }}" alt="Mitra 3"></div>
-            <div class="mitra-logo"><img src="{{ asset('images/mitra/logo4.png') }}" alt="Mitra 4"></div>
-            <div class="mitra-logo"><img src="{{ asset('images/mitra/logo5.png') }}" alt="Mitra 5"></div>
-            <div class="mitra-logo"><img src="{{ asset('images/mitra/logo6.png') }}" alt="Mitra 6"></div>
+             @foreach($clients as $client)
+            <div class="mitra-logo">
+                <img src="{{ asset('storage/'.$client->logo) }}" alt="{{ $client->name }}">
+            </div>
+            @endforeach
+            
             <!-- Duplikat untuk seamless loop -->
-            <div class="mitra-logo"><img src="{{ asset('images/mitra/logo1.png') }}" alt="Mitra 1"></div>
-            <div class="mitra-logo"><img src="{{ asset('images/mitra/logo2.png') }}" alt="Mitra 2"></div>
-            <div class="mitra-logo"><img src="{{ asset('images/mitra/logo3.png') }}" alt="Mitra 3"></div>
-            <div class="mitra-logo"><img src="{{ asset('images/mitra/logo4.png') }}" alt="Mitra 4"></div>
-            <div class="mitra-logo"><img src="{{ asset('images/mitra/logo5.png') }}" alt="Mitra 5"></div>
-            <div class="mitra-logo"><img src="{{ asset('images/mitra/logo6.png') }}" alt="Mitra 6"></div>
+            @foreach($clients as $client)
+            <div class="mitra-logo">
+                <img src="{{ asset('storage/'.$client->logo) }}" alt="{{ $client->name }}">
+            </div>
+            @endforeach
         </div>
     </div>
 </section>
