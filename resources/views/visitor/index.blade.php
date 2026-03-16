@@ -1,4 +1,6 @@
 @extends('template/layout')
+@section('title', 'Data Visitors')
+
 @section('content')
 <div class="row">
     <div class="col-12">

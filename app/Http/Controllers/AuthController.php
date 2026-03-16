@@ -46,6 +46,10 @@ class AuthController extends Controller
         
         return view('auth.dashboard', compact('totalvisitor', 'totalclient', 'totalblog', 'totalmessage'));
     }
+    public function profile()
+    {
+        return view('auth.profile');
+    }
 
     public function logout(Request $request)
     {

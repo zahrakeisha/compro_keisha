@@ -45,7 +45,7 @@ Route::post('/loginproses', [AuthController::class, 'proseslogin'])->name('login
 Route::get('/dashboard', [AuthController::class, 'dashboard'])->name('dashboard')->middleware('auth');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth');
-
+Route::get('/profile', [AuthController::class, 'profile'])->name('profile')->middleware('auth');
 
 //route about us
 Route::get('/about', [AboutController::class, 'index'])->name('about.index');

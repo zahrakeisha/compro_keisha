@@ -1,10 +1,11 @@
 @extends('template/layout')
+@section('title', 'Data Contact Info')
 @section('content')
 <div class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-header d-flex align-items-center">
-                <h3>Data info contact</h3>
+                <h3>Contact Info</h3>
                 <a href="{{ route('contactinfo.create') }}" class="btn btn-primary btn-sm ml-auto"><i class="fas fa-plus"></i> Add contactinfo</a>
             </div>
             <div class="card-body table-responsive">

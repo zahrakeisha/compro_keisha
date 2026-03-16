@@ -1,4 +1,6 @@
 @extends('template/layout')
+@section('title', 'Dashboard')
+
 @section('content')
         <!-- Small Box (Stat card) -->
         <div class="row">

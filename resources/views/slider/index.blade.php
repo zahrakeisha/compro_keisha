@@ -1,4 +1,5 @@
 @extends('template/layout')
+@section('title', 'Data Sliders')
 @section('content')
 <div class="row">
     <div class="col-12">

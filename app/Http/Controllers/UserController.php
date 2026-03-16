@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -103,9 +104,14 @@ class UserController extends Controller
             if($request->filled('password')){
                 $data['password'] = bcrypt($request->password);
             }
-
+            
             $dataupdate->update($data);
-            return redirect()->route('user.index');
+            // cek apakah user update dirinya sendiri
+            if(Auth::User()->user_id == $id){
+                return redirect()->route('profile')->with('success','Profile berhasil diupdate');
+            }
+
+            return redirect()->route('user.index')->with('success','User berhasil diupdate');
     }
 
     /**
