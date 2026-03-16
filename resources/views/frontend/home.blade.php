@@ -1,6 +1,13 @@
 @extends('template/frontend/layoutfront')
 @section('content')
 
+<!-- VIDEO INTRO -->
+<div id="intro-video">
+    <video id="videoIntro" autoplay muted playsinline>
+        <source src="{{ asset('vidio/home_video.mp4') }}" type="video/mp4">
+    </video>
+</div>
+
 <!-- Hero Section -->
 <section class="hero" id="home">
     

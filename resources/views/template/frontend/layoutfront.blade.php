@@ -115,5 +115,20 @@
 
 </script>
 
+<script>
+const videoIntro = document.getElementById("videoIntro");
+const intro = document.getElementById("intro-video");
+
+videoIntro.onended = function(){
+
+    intro.classList.add("fade-out");
+
+    setTimeout(function(){
+        intro.style.display = "none";
+    },1000);
+
+};
+</script>
+
 </body>
 </html>
