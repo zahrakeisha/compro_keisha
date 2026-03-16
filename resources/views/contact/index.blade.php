@@ -7,7 +7,7 @@
                 <h3>Data contact</h3>
             </div>
             <div class="card-body table-responsive">
-                <table id="table" class="table table-striped table-hover">
+                <table id="table" class="table table-striped table-hover m-2">
     <thead>
         <tr>
             <th>no</th>
@@ -15,7 +15,7 @@
             <th>Email</th>
             <th>Message</th>
             <th>
-                <a href="{{ route('contact.create') }}" class="btn btn-primary btn-sm">+ Add contact</a>
+                Action
             </th>
         </tr>
     </thead>
@@ -30,7 +30,7 @@
                 <form action ="{{ route('contact.destroy', $v->contact_id) }}" method="POST" style="display:inline">
                     {{ csrf_field() }}
                     @method('DELETE')
-                    <a href="{{ route('contact.edit', $v->contact_id) }}" class="btn btn-success btn sm">Edit</a>
+                   
                     <button type="submit" onclick="return confirm('Are you sure want to delete this contact?')" class="btn btn-danger btn-sm">Delete</button>
                 </form>
             </td>

@@ -8,7 +8,7 @@
                 <a href="{{ route('contactinfo.create') }}" class="btn btn-primary btn-sm ml-auto"><i class="fas fa-plus"></i> Add contactinfo</a>
             </div>
             <div class="card-body table-responsive">
-                <table id="table" class="table table-striped table-hover">
+                <table id="table" class="table table-striped table-hover m-2">
     <thead>
         <tr>
             <th>no</th>

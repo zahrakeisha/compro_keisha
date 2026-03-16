@@ -81,5 +81,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="https://cdn.datatables.net/2.3.7/js/dataTables.js"></script>
 <script src="https://cdn.datatables.net/2.3.7/js/dataTables.bootstrap4.js"></script>
 @stack('js')
+
+<!-- script tanggal hari navbar -->
+ <script>
+const today = new Date();
+
+const options = { 
+  weekday: 'long', 
+  year: 'numeric', 
+  month: 'long', 
+  day: 'numeric' 
+};
+
+document.getElementById("today-date").innerHTML = 
+  today.toLocaleDateString('en-US', options);
+</script>
+</body>
 </body>
 </html>

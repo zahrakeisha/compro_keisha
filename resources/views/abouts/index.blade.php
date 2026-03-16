@@ -7,7 +7,7 @@
                 <h3>Data about</h3>
             </div>
             <div class="card-body table-responsive">
-                <table id="table"  class="table table-striped table-hover">
+                <table id="table"  class="table table-striped table-hover m-2">
     <thead>
         <tr>
             <th>No</th>
@@ -73,6 +73,7 @@
 
 @push('js')
 <script>
+    
     new DataTable('#table');
 </script>
 @endpush

@@ -15,6 +15,8 @@
 
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <!-- buat icon dari awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
@@ -35,6 +37,84 @@
             navMenu.classList.toggle('active');
         });
     }
+
+    // SLIDER
+
+document.addEventListener("DOMContentLoaded", function(){
+
+const slides = document.querySelectorAll(".slide");
+const dots = document.querySelectorAll(".dot");
+
+let index = 0;
+
+function showSlide(i){
+
+slides.forEach(slide => slide.classList.remove("active"));
+dots.forEach(dot => dot.classList.remove("active"));
+
+slides[i].classList.add("active");
+dots[i].classList.add("active");
+
+index = i;
+
+}
+
+
+// AUTO SLIDE
+setInterval(function(){
+
+index++;
+
+if(index >= slides.length){
+index = 0;
+}
+
+showSlide(index);
+
+}, 4000);
+
+
+// PANAH NEXT
+document.querySelector(".next").addEventListener("click", function(){
+
+index++;
+
+if(index >= slides.length){
+index = 0;
+}
+
+showSlide(index);
+
+});
+
+
+// PANAH PREV
+document.querySelector(".prev").addEventListener("click", function(){
+
+index--;
+
+if(index < 0){
+index = slides.length - 1;
+}
+
+showSlide(index);
+
+});
+
+
+// DOT CLICK
+dots.forEach((dot,i)=>{
+
+dot.addEventListener("click", function(){
+
+showSlide(i);
+
+});
+
+});
+
+});
+
 </script>
 
 </body>

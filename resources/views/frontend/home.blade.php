@@ -3,22 +3,42 @@
 
 <!-- Hero Section -->
 <section class="hero" id="home">
-    @foreach( $sliders as $slider)
+    
     <!-- Slider -->
-    <div class="hero-slider {{ $loop->first ? 'active' : '' }}">
-        <div class="slide active">
+    <div class="hero-slider">
+        @foreach( $sliders as $slider)
+        <div class="slide {{ $loop->first ? 'active' : '' }}">
             <img src="{{ asset('storage/'.$slider->image) }}" alt="{{ $slider->title }}">
+            
+            <div class="hero-title">
+                <h1>{{ $slider->title }}</h1>
+            </div>
+
+            <div class="hero-desc">
+                <p>{{ $slider->description }}</p>
+            </div>
+        </div>
+        @endforeach
+        <!-- PANAH -->
+        <button class="slider-arrow prev">&#10094;</button>
+        <button class="slider-arrow next">&#10095;</button>
+
+
+        <!-- DOTS -->
+        <div class="slider-dots">
+            @foreach($sliders as $key => $slider)
+            <span class="dot {{ $key == 0 ? 'active' : '' }}" data-slide="{{ $key }}"></span>
+            @endforeach
         </div>
     </div>
-
-    <!-- Konten -->
-    <div class="hero-content">
-        <h1>{{ $slider->title }}</h1>
-        <p>{{ $slider->description }}</p>
-        <a href="/contactsfront" class="cta">Hubungi Kami</a>
+    <div class="hero-buttons">
+    <a href="/contactsfront" class="cta">Contact Us </a>
+    <a href="#contact" class="cta-secondary"><i class="fa-solid fa-paper-plane"></i> Get In Touch</a>
     </div>
+
     
-    @endforeach
+    
+    
    
 
     <!-- Wave Pemisah -->
@@ -54,6 +74,25 @@
             <div class="mitra-logo"><img src="{{ asset('images/mitra/logo6.png') }}" alt="Mitra 6"></div>
         </div>
     </div>
+</section>
+
+<section id="contact" class="contact">
+<div class="contact-form">
+    <h3>Leave Us a Message</h3>
+    <form action="{{ route('contact.store') }}" method="POST">
+        {{ csrf_field() }}
+        <div class="mb-3">
+            <input type="text" name="name" placeholder="Name">
+        </div>
+        <div class="mb-3">
+            <input type="email" name="email" placeholder="Email">
+        </div>
+        <div class="mb-3">
+            <textarea type="text" name="message" placeholder="Message" rows="5"></textarea>
+        </div>
+        <button type="submit">Submit Message</button>
+    </form>
+</div>
 </section>
 
 @endsection

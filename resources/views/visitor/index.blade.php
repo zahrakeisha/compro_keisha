@@ -7,7 +7,7 @@
                 <h3>Visitors</h3>
             </div>
             <div class="card-body table-responsive">
-                <table id="table" class="table table-striped table-hover">
+                <table id="table" class="table table-striped table-hover m-2">
     <thead>
         <tr>
             <th>No</th>
