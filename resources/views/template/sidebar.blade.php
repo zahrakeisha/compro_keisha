@@ -1,21 +1,22 @@
  <aside class="main-sidebar sidebar-light-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-      <img src="{{ asset('img/ujpk.jpeg')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <img src="{{ asset('img/logo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle" style="opacity: .8">
       <span class="brand-text font-weight-light">Usaha Jaya Prima Karya</span>
     </a>
 
     <!-- Sidebar -->
     <div class="sidebar">
-      <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="{{ asset('AdminLTE/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2"  alt="User Image">
-        </div>
-        <div class="info">
-          @if (Auth::user())
-          <a href="#" class="d-block">{{ Auth::user()->email}}</a>
-          @endif
+      <!-- Sidebar Search -->
+      <div class="form-inline mt-3">
+        <div class="input-group" data-widget="sidebar-search">
+          <input class="form-control form-control-sidebar" type="search"
+                placeholder="Search" aria-label="Search">
+          <div class="input-group-append">
+            <button class="btn btn-sidebar">
+              <i class="fas fa-search fa-fw"></i>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -32,7 +33,7 @@
           </li>
           <li class="nav-item">
             <a href="/" class="nav-link" target="_blank">
-              <i class="fas fa-external-link-alt"></i>
+              <i class="nav-icon fas fa-external-link-alt"></i>
               <p>
                 See Website
               </p>
@@ -73,9 +74,9 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item {{ request()->is('sliders*','visions*','marketing*','blog*','contactinfo*','about*') ? 'menu-open' : '' }}">
-            <a href="#" class="nav-link {{ request()->is('sliders*','visions*','marketing*','blog*','contactinfo*','about*') ? 'active' : '' }}">
-              <i class="fas fa-globe"></i>
+          <li class="nav-item {{ request()->is('sliders*','visions*','marketing*','blog*','contactinfo*','about*', 'nav*') ? 'menu-open' : '' }}">
+            <a href="#" class="nav-link {{ request()->is('sliders*','visions*','marketing*','blog*','contactinfo*','about*', 'nav*') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-globe"></i>
               <p>
                 Website Content
                 <i class="right fas fa-angle-left"></i>
@@ -117,8 +118,14 @@
                   <i class="far fa-circle nav-icon"></i>
                   <p>Data Marketings</p>
                 </a>
-                </ul>
               </li>
+              <li class="nav-item">
+                <a href="/nav" class="nav-link {{ request()->is('nav*') ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Data Navbar Profile</p>
+                </a>
+              </li>
+              </ul>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
@@ -129,7 +136,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/contact" class="nav-link {{ request()->is('contact*') ? 'active' : '' }}">
+            <a href="/contact" class="nav-link {{ request()->is(['contact', 'contact/*']) ? 'active' : '' }}">
               <i class="nav-icon fas fa-phone"></i>
               <p>
                 Contact Messages

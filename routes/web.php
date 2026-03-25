@@ -16,6 +16,7 @@ use App\Http\Controllers\VisionsController;
 use App\Http\Controllers\SlidersController;
 use App\Http\Controllers\VisitorController;
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\NavController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,14 +29,19 @@ use App\Http\Controllers\FrontController;
 |
 */
 
-//home
-Route::get('/', [FrontController::class, 'index']);
-Route::get('/aboutme', [FrontController::class, 'about']);
-Route::get('/visi_misi', [FrontController::class, 'visi']);
-Route::get('/blogger', [FrontController::class, 'blog']);
-Route::get('/blogger/{id}', [FrontController::class, 'blogsDetail'])->name('blogs.detail');
-Route::get('/contactsfront', [FrontController::class, 'contacts']);
-Route::get('/servicedetail/{id}', [FrontController::class, 'servicedetail'])->name('service.detail');
+
+Route::middleware(['track'])->group(function () {
+    //home
+    Route::get('/', [FrontController::class, 'index']);
+    Route::get('/aboutme', [FrontController::class, 'about']);
+    Route::get('/visi_misi', [FrontController::class, 'visi']);
+    Route::get('/blogger', [FrontController::class, 'blog']);
+    Route::get('/blogger/{id}', [FrontController::class, 'blogsDetail'])->name('blogs.detail');
+    Route::get('/contactsfront', [FrontController::class, 'contacts']);
+    Route::get('/servicedetail/{id}', [FrontController::class, 'servicedetail'])->name('service.detail');
+});
+
+
 
 
 
@@ -147,6 +153,16 @@ Route::put('/sliders/{id}', [SlidersController::class, 'update'])->name('sliders
 Route::delete('/sliders/{id}', [SlidersController::class, 'destroy'])->name('sliders.destroy');
 Route::get('/sliders/{id}/active', [SlidersController::class, 'active'])->name('sliders.active');
 Route::get('/sliders/{id}/nonactive', [SlidersController::class, 'nonactive'])->name('sliders.nonactive');
+
+//route nav
+Route::get('/nav',[NavController::class, 'index'])->name('nav.index');
+Route::get('/nav/create',[NavController::class, 'create'])->name('nav.create');
+Route::post('/nav',[NavController::class, 'store'])->name('nav.store');
+Route::get('/nav/{id}/edit',[NavController::class,'edit'])->name('nav.edit');
+Route::put('/nav/{id}',[NavController::class, 'update'])->name('nav.update');
+Route::delete('/nav/{id}',[NavController::class, 'destroy'])->name('nav.destroy');
+Route::get('/nav/{id}/active', [NavController::class, 'active'])->name('nav.active');
+Route::get('/nav/{id}/nonactive', [NavController::class, 'nonactive'])->name('nav.nonactive');
 
 //route visitor
 Route::get('/visitor', [VisitorController::class, 'index'])->name('visitor.index');

@@ -53,7 +53,7 @@ class UserController extends Controller
 
         ]);
 
-            return redirect()->route('user.index');
+            return redirect()->route('user.index')->with('success','User added successfully');
 
     }
 
@@ -106,12 +106,7 @@ class UserController extends Controller
             }
             
             $dataupdate->update($data);
-            // cek apakah user update dirinya sendiri
-            if(Auth::User()->user_id == $id){
-                return redirect()->route('profile')->with('success','Profile berhasil diupdate');
-            }
-
-            return redirect()->route('user.index')->with('success','User berhasil diupdate');
+            return redirect()->route('profile')->with('success','Profile updated successfully');
     }
 
     /**

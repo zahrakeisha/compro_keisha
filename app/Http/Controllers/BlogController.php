@@ -63,7 +63,7 @@ class BlogController extends Controller
             'user_id' => Auth::id(),  //supaya ada nama user yg isi blog
         ]);
 
-        return redirect()->route('blog.index');
+        return redirect()->route('blog.index')->with('success','Blog added successfully');
 
     }
 
@@ -100,7 +100,7 @@ class BlogController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'title' => 'required|string|max:225|unique:blogs',
+            'title' => 'required|string|max:225',
             'thumbnail' => 'nullable|image|mimes:jpg,jpeg,png|max:5120',
             'content' => 'required|string',
         ]);
@@ -125,7 +125,7 @@ class BlogController extends Controller
             'content' => $request->content,
             'user_id' => Auth::id(),
         ]);
-        return redirect()->route('blog.index');
+        return redirect()->route('blog.index')->with('success','Blog updated successfully');
     }
 
     /**

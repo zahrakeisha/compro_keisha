@@ -43,8 +43,14 @@ class AuthController extends Controller
         $totalclient = Clients::count();
         $totalblog = Blogs::count();
         $totalmessage = Contacts::count();
-        
-        return view('auth.dashboard', compact('totalvisitor', 'totalclient', 'totalblog', 'totalmessage'));
+        $visitorChart = Visitor::selectRaw('DATE(created_at) as date, COUNT(*) as total')
+            ->whereMonth('created_at', now()->month)
+            ->whereYear('created_at', now()->year)
+            ->groupBy('date')
+            ->orderBy('date')
+            ->get();
+                
+        return view('auth.dashboard', compact('totalvisitor', 'totalclient', 'totalblog', 'totalmessage','visitorChart' ));
     }
     public function profile()
     {

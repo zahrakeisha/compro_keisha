@@ -1,6 +1,11 @@
 @extends('template/layout')
 @section('title', 'Data Contact Info')
 @section('content')
+@if(session('success'))
+<div class="alert alert-success">
+    <i class="fas fa-check-circle"></i> {{ session('success') }}
+</div>
+@endif
 <div class="row">
     <div class="col-12">
         <div class="card">

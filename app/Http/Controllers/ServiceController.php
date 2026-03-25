@@ -63,7 +63,7 @@ class ServiceController extends Controller
             'description' => $request->description
         ]);
 
-        return redirect()->route('service.index');
+        return redirect()->route('service.index')->with('success','Service added successfully');
     }
     /**
      * Display the specified resource.
@@ -119,7 +119,7 @@ class ServiceController extends Controller
               \Storage::disk('public')->delete($dataeditservice->image);
               }
             $image = $request->file('image')->store('services', 'public');
-    }
+        }
         $dataeditservice->update([
         'title' => $request->title,
         'slug' => $slug,
@@ -127,7 +127,7 @@ class ServiceController extends Controller
         'description' => $request->description
        ]);
 
-       return redirect()->route('service.index');
+       return redirect()->route('service.index')->with('success','Service updated successfully');
     }
 
     /**

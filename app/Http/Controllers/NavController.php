@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Contactinfo;
+use App\Navprofile;
 
-class ContactinfoController extends Controller
+class NavController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class ContactinfoController extends Controller
      */
     public function index()
     {
-        $contactinfo = Contactinfo::all();
-        return view('contactinfo.index', compact('contactinfo'));
+        $nav = Navprofile::all();
+        return view('nav.index', compact('nav'));
     }
 
     /**
@@ -25,7 +25,7 @@ class ContactinfoController extends Controller
      */
     public function create()
     {
-        return view('contactinfo.create');
+        return view('nav.create');
     }
 
     /**
@@ -37,20 +37,19 @@ class ContactinfoController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
-            'gmaps' => 'required|string',
-            'email' => 'required',
-            'phone' => 'required|string',
-            'address' => 'required|string',
+            'name' => 'required|string|max:225',
+            'logo' => 'nullable|image|mimes:jpg,jpeg,png|max:5120',
         ]);
-        Contactinfo::create([
-            'name' => $request->name,
-            'gmaps' => $request->gmaps,
-            'email' => $request->email,
-            'phone' => $request->phone,
-            'address' =>$request->address,
+        $logo = null; 
+        if ($request->hasFile('logo')) { 
+           $logo = $request->file('logo')->store('navlogo', 'public');
+        }
+
+        Navprofile::create([
+            'company_name' => $request->name,
+            'logo' => $logo,
         ]);
-        return redirect()->route('contactinfo.index')->with('success','Contact Info added successfully');
+        return redirect()->route('nav.index')->with('success','Nav Profile added successfully');
     }
 
     /**
@@ -72,8 +71,8 @@ class ContactinfoController extends Controller
      */
     public function edit($id)
     {
-        $contactinfo= Contactinfo::find($id);
-        return view('contactinfo.edit', compact('contactinfo'));
+        $dataeditnav = Navprofile::find($id);
+        return view('nav.edit', compact('dataeditnav'));
     }
 
     /**
@@ -86,21 +85,22 @@ class ContactinfoController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
-            'gmaps' => 'required|string',
-            'email' => 'required',
-            'phone' => 'required|string',
-            'address' => 'required|string',
+            'name' => 'required|string|max:225',
+            'logo' => 'nullable|image|mimes:jpg,jpeg,png|max:5120',
         ]);
-        $contactinfo = Contactinfo::findOrFail($id);
-        $contactinfo->update([
-            'name' => $request->name,
-            'gmaps' => $request->gmaps,
-            'email' => $request->email,
-            'phone' => $request->phone,
-            'address' =>$request->address,
+        $dataeditnav = Navprofile::findOrFail($id);
+        $logo = $dataeditnav->logo;
+        if ($request->hasFile('logo')){
+           if ($dataeditnav->logo){
+              \Storage::disk('public')->delete($dataeditnav->logo);
+              }
+            $logo = $request->file('logo')->store('navlogo', 'public');
+        }
+        $dataeditnav->update([
+            'company_name' => $request->name,
+            'logo' => $logo,
         ]);
-        return redirect()->route('contactinfo.index')->with('success','Contact Info updated successfully');
+        return redirect()->route('nav.index')->with('success','Nav Profile updated successfully');
     }
 
     /**
@@ -111,13 +111,12 @@ class ContactinfoController extends Controller
      */
     public function destroy($id)
     {
-        Contactinfo::where('contactfo_id', $id)->delete();
-        return redirect()->route('contactinfo.index');
+        Navprofile::where('nav_id', $id)->delete();
+        return redirect()->route('nav.index');
     }
-    
     public function active($id)
     {
-        Contactinfo::where('contactfo_id',$id)->update([
+        Navprofile::where('nav_id',$id)->update([
             'status' => 1
         ]);
 
@@ -126,7 +125,7 @@ class ContactinfoController extends Controller
 
     public function nonactive($id)
     {
-        Contactinfo::where('contactfo_id',$id)->update([
+        Navprofile::where('nav_id',$id)->update([
             'status' => 0
         ]);
 

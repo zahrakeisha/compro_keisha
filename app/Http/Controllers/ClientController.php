@@ -55,7 +55,7 @@ class ClientController extends Controller
             'logo'=> $logo,
             'service_id'=>$request->service_id, 
         ]);
-        return redirect()->route('client.index');
+        return redirect()->route('client.index')->with('success','Client added successfully');
     }
 
     /**
@@ -119,7 +119,7 @@ class ClientController extends Controller
             'service_id'=>$request->service_id, 
         ]);
 
-        return redirect()->route('client.index');
+        return redirect()->route('client.index')->with('success','Client updated successfully');
     }
 
     /**

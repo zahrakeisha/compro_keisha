@@ -46,7 +46,7 @@ class MarketingsController extends Controller
             'phone' => $request->phone,
             'possition' =>$request->possition,
         ]);
-        return redirect()->route('marketing.index');
+        return redirect()->route('marketing.index')->with('success','Marketing added successfully');
     }
 
     /**
@@ -94,7 +94,7 @@ class MarketingsController extends Controller
             'phone' => $request->phone,
             'possition' =>$request->possition,
         ]);
-        return redirect()->route('marketing.index');
+        return redirect()->route('marketing.index')->with('success','Marketing updated successfully');
     }
 
     /**

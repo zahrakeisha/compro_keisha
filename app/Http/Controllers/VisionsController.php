@@ -46,7 +46,7 @@ class VisionsController extends Controller
             'content'=> $request->content,
         ]);
 
-        return redirect()->route('visions.index');
+        return redirect()->route('visions.index')->with('success', ucfirst($request->type).' added successfully');
     }
 
     public function active($id)
@@ -111,7 +111,7 @@ class VisionsController extends Controller
             'content'=> $request->content,
         ]);
 
-        return redirect()->route('visions.index');
+        return redirect()->route('visions.index')->with('success', ucfirst($request->type).' updated successfully');;
     }
 
     /**

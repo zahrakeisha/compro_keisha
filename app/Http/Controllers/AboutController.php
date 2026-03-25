@@ -59,7 +59,7 @@ class AboutController extends Controller
             'description'=>$request->description,
             'image'=>$image,
         ]);
-        return redirect()->route('about.index');
+        return redirect()->route('about.index')->with('success','About Us added successfully');
     }
 
     /**
@@ -129,7 +129,7 @@ class AboutController extends Controller
             'image'=>$image,
         ]);
 
-        return redirect()->route('about.index');
+        return redirect()->route('about.index')->with('success','About Us updated successfully');
     }
 
     /**

@@ -46,7 +46,7 @@ class ContactController extends Controller
             'email' => $request->email,
             'message' =>$request->message,
         ]);
-        return back();
+        return back()->with('success','Contact added successfully');
     }
 
     /**

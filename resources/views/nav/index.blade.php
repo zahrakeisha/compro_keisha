@@ -1,5 +1,4 @@
 @extends('template/layout')
-@section('title', 'Data Sliders')
 @section('content')
 @if(session('success'))
 <div class="alert alert-success">
@@ -10,48 +9,50 @@
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <h3>Data Sliders</h3>
+                <h3>Data Navbar</h3>
             </div>
             <div class="card-body table-responsive">
                 <table id="table" class="table table-striped table-hover m-2">
     <thead>
         <tr>
             <th>No</th>
-            <th>Title</th>
-            <th>Image</th>
-            <th>Description</th>
+            <th>Company Name</th>
+            <th>Logo</th>
             <th>Status</th>
             <th>
-                <a href="{{ route('sliders.create') }}" class="btn btn-primary btn-sm">+ Add Sliders</a>
+                <a href="{{ route('nav.create') }}" class="btn btn-primary btn-sm">+ Add Nav Profile</a>
             </th>
         </tr>
     </thead>
     <tbody>
-        @foreach ($sliders as $v)
+        @foreach ($nav as $v)
         <tr>
             <td>{{ $loop->iteration}}</td>
-            <td>{{ $v->title }}</td>
+            <td>{{ $v->company_name }}</td>
             <td>
-                <img src="{{ asset('storage/'.$v->image) }}" width="60">
+                @if ($v->logo)
+                <img src="{{ asset('storage/'.$v->logo) }}" width="60">
+                @else
+                -
+                @endif
             </td>
-            <td>{{ $v->description }}</td>
             <td>
                 @if($v->status == 1)
-                <a href="{{ route('sliders.nonactive',$v->sliders_id) }}" class="btn btn-danger btn-sm">
-                Nonactive
+                <a href="{{ route('nav.nonactive',$v->nav_id) }}" class="btn btn-outline-success btn-sm">
+                Active
                 </a>
                 @else
-                <a href="{{ route('sliders.active',$v->sliders_id) }}" class="btn btn-success btn-sm">
-                Active
+                <a href="{{ route('nav.active',$v->nav_id) }}" class="btn btn-outline-danger btn-sm">
+                Nonactive
                 </a>
                 @endif
             </td>
             <td>
-                <form action ="{{ route('sliders.destroy', $v->sliders_id) }}" method="POST" style="display:inline">
+                <form action ="{{ route('nav.destroy', $v->nav_id) }}" method="POST" style="display:inline">
                     {{ csrf_field() }}
                     @method('DELETE')
-                    <a href="{{ route('sliders.edit', $v->sliders_id) }}" class="btn btn-success btn-sm">Edit</a>
-                    <button type="submit" onclick="return confirm('Are you sure want to delete this sliders?')" class="btn btn-danger btn-sm">Delete</button>
+                    <a href="{{ route('nav.edit', $v->nav_id) }}" class="btn btn-success btn-sm">Edit</a>
+                    <button type="submit" onclick="return confirm('Are you sure want to delete this?')" class="btn btn-danger btn-sm">Delete</button>
                 </form>
             </td>
         </tr>
@@ -69,7 +70,6 @@
     new DataTable('#table');
 </script>
 @endpush
-
 
 
 

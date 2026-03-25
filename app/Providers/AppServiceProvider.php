@@ -3,6 +3,9 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Navprofile;
+use App\Services;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +26,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        view()->share([
+        'nav' => Navprofile::where('status', 1)->first(),
+        'services' => Services::all(),
+        ]);
     }
 }

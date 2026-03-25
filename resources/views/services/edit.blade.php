@@ -24,6 +24,7 @@
                         <img src="{{ asset('storage/' . $dataeditservice->image) }}"
                             alt="{{ $dataeditservice->title }}" class="img-thumbnail" width="200"></p>
                         @endif
+                </div>
                 <div class="mb-3">
                     <label for="description" class="form-label">Description</label>
                     <textarea name="description" class="form-control" id="description" rows="5">{{ $dataeditservice->description }}</textarea>

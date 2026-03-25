@@ -5,37 +5,51 @@
 <div class="row">
     <div class="col-12">
         <div class="card">
-            <div class="card-header">
-                <h3>Visitors</h3>
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h3 class="mb-0">Visitors</h3>
+                <div class="d-flex align-items-center gap-2">
+                    <span class="mr-3">
+                        Total: <b>{{ $totalFiltered }}</b>
+                    </span>
+
+                    <form method="GET">
+                        <select name="filter" onchange="this.form.submit()" class="form-control">
+                            <option value="all" {{ request('filter','all') == 'all' ? 'selected' : '' }}>Semua</option>
+                            <option value="week" {{ request('filter') == 'week' ? 'selected' : '' }}>Minggu Ini</option>
+                            <option value="month" {{ request('filter') == 'month' ? 'selected' : '' }}>Bulan Ini</option>
+                            <option value="year" {{ request('filter') == 'year' ? 'selected' : '' }}>Tahun Ini</option>
+                        </select>
+                    </form>
+                </div>
             </div>
             <div class="card-body table-responsive">
                 <table id="table" class="table table-striped table-hover m-2">
-    <thead>
-        <tr>
-            <th>No</th>
-            <th>IP Address</th>
-            <th>Browser</th>
-            <th>URL</th>
-            <th>Visited At</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach($visitor as $v)
-        <tr>
-            <td>{{ $loop->iteration }}</td>
-            <td>{{ $v->ip_address }}</td>
-            <td>{{ $v->user_agent }}</td>
-            <td>{{ $v->url }}</td>
-            <td>{{ $v->created_at }}</td>
-        </tr>
-        @endforeach
-    </tbody>
-</table>
-            </div>
-        </div>
-    </div>
-</div>
-@endsection
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>IP Address</th>
+                            <th>Browser</th>
+                            <th>URL</th>
+                            <th>Visited At</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($visitor as $v)
+                        <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $v->ip_address }}</td>
+                            <td>{{ $v->user_agent }}</td>
+                            <td>{{ $v->url }}</td>
+                            <td>{{ $v->created_at }}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endsection
 
 @push('js')
 <script>

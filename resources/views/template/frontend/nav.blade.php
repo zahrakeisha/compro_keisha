@@ -1,9 +1,11 @@
 <!-- Navbar Start -->
 <nav class="navbar">
+    @if(!empty($nav))
     <a href="/" class="navbar-logo">
-        <img src="{{ asset('images/logo-pt.png') }}" alt="Logo PT UJPK" class="navbar-logo-img">
-        PT Usaha Jaya Prima <span>Karya</span>
+        <img src="{{ asset('storage/'.$nav->logo) }}" alt="{{ $nav->company_name }}" class="navbar-logo-img">
+        {{ $nav->company_name }}
     </a>
+    @endif
 
     <div class="navbar-nav">
         <a href="/" class="{{ request()->is('/') ? 'active' : '' }}">Home</a>

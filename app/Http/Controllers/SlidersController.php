@@ -53,7 +53,7 @@ class SlidersController extends Controller
             'description' => $request->description
         ]);
 
-        return redirect()->route('sliders.index');
+        return redirect()->route('sliders.index')->with('success','Sliders added successfully');
     }
 
     /**
@@ -111,7 +111,7 @@ class SlidersController extends Controller
             'description' => $request->description
         ]);
 
-        return redirect()->route('sliders.index');
+        return redirect()->route('sliders.index')->with('success','Sliders updated successfully');
     }
 
     /**
