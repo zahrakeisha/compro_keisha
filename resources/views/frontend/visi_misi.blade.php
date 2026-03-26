@@ -7,7 +7,9 @@
 
         <div class="vm-card">
             <h2>Visi</h2>
+            @if(!empty($vision))
             <p>{{ $vision->content }}</p>
+            @endif
         </div>
 
         <div class="vm-card">

@@ -17,6 +17,7 @@ use App\Http\Controllers\SlidersController;
 use App\Http\Controllers\VisitorController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\NavController;
+use App\Http\Controllers\FooterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -163,6 +164,14 @@ Route::put('/nav/{id}',[NavController::class, 'update'])->name('nav.update');
 Route::delete('/nav/{id}',[NavController::class, 'destroy'])->name('nav.destroy');
 Route::get('/nav/{id}/active', [NavController::class, 'active'])->name('nav.active');
 Route::get('/nav/{id}/nonactive', [NavController::class, 'nonactive'])->name('nav.nonactive');
+
+//route footer
+Route::get('/footer',[FooterController::class, 'index'])->name('footer.index');
+Route::get('/footer/create',[FooterController::class, 'create'])->name('footer.create');
+Route::post('/footer', [FooterController::class, 'store'])->name('footer.store');
+Route::get('/footer/{id}/edit', [FooterController::class, 'edit'])->name('footer.edit');
+Route::put('/footer/{id}',[FooterController::class, 'update'])->name('footer.update');
+Route::delete('/footer/{id}', [FooterController::class, 'destroy'])->name('footer.destroy');
 
 //route visitor
 Route::get('/visitor', [VisitorController::class, 'index'])->name('visitor.index');

@@ -74,8 +74,8 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item {{ request()->is('sliders*','visions*','marketing*','blog*','contactinfo*','about*', 'nav*') ? 'menu-open' : '' }}">
-            <a href="#" class="nav-link {{ request()->is('sliders*','visions*','marketing*','blog*','contactinfo*','about*', 'nav*') ? 'active' : '' }}">
+          <li class="nav-item {{ request()->is('sliders*','visions*','marketing*','blog*','contactinfo*','about*', 'nav*', 'footer*') ? 'menu-open' : '' }}">
+            <a href="#" class="nav-link {{ request()->is('sliders*','visions*','marketing*','blog*','contactinfo*','about*', 'nav*', 'footer*') ? 'active' : '' }}">
               <i class="nav-icon fas fa-globe"></i>
               <p>
                 Website Content
@@ -125,7 +125,13 @@
                   <p>Data Navbar Profile</p>
                 </a>
               </li>
-              </ul>
+              <li class="nav-item">
+                <a href="/footer" class="nav-link {{ request()->is('footer*') ? 'active' : '' }}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Data Footer Profile</p>
+                </a>
+              </li>
+            </ul>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">

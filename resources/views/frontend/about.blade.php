@@ -4,7 +4,7 @@
 <!-- About Section -->
 <section id="about" class="about-company">
     <h2>About Us</h2>
-
+    @if(!empty($abouts))
     <div class="about-wrapper">
         <div class="about-profile">
             <img src="{{ asset('storage/'.$abouts->logo) }}" alt="Direktur Utama">
@@ -27,6 +27,7 @@
             <img src="{{ asset('storage/'.$abouts->image) }}" alt="Struktur Organisasi PT UJPK">
         </div>
     </div>
+    @endif
 </section>
 
 @endsection

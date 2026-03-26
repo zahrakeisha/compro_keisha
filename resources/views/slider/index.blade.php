@@ -37,12 +37,12 @@
             <td>{{ $v->description }}</td>
             <td>
                 @if($v->status == 1)
-                <a href="{{ route('sliders.nonactive',$v->sliders_id) }}" class="btn btn-danger btn-sm">
-                Nonactive
+                <a href="{{ route('sliders.nonactive',$v->sliders_id) }}" class="btn btn-outline-success btn-sm">
+                Active
                 </a>
                 @else
-                <a href="{{ route('sliders.active',$v->sliders_id) }}" class="btn btn-success btn-sm">
-                Active
+                <a href="{{ route('sliders.active',$v->sliders_id) }}" class="btn btn-outline-danger btn-sm">
+                Nonactive 
                 </a>
                 @endif
             </td>

@@ -40,12 +40,12 @@
             <td>{{ $v->address }}</td>
             <td>
                 @if($v->status == 1)
-                <a href="{{ route('contactinfo.nonactive',$v->contactfo_id) }}" class="btn btn-danger btn-sm">
-                Nonactive
+                <a href="{{ route('contactinfo.nonactive',$v->contactfo_id) }}" class="btn btn-outline-success btn-sm">
+                Active
                 </a>
                 @else
-                <a href="{{ route('contactinfo.active',$v->contactfo_id) }}" class="btn btn-success btn-sm">
-                Active
+                <a href="{{ route('contactinfo.active',$v->contactfo_id) }}" class="btn btn-outline-danger btn-sm">
+                Nonactive
                 </a>
                 @endif
             </td>

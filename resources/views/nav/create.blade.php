@@ -4,7 +4,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <h3>Create Nav Profile</h3>
+                <h3>Add Nav Profile</h3>
             </div>
             <form action="{{ route('nav.store') }}" method="POST" enctype="multipart/form-data">
             {{csrf_field()}}
