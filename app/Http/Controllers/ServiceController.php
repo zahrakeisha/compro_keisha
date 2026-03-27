@@ -38,7 +38,7 @@ class ServiceController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title'=> 'required|string|max:225|unique:services',
+            'title'=> 'required|string|max:225',
             'image'       => 'nullable|image|mimes:jpg,jpeg,png|max:5120',
             'description' => 'required|string',
         ]);
@@ -99,7 +99,7 @@ class ServiceController extends Controller
     public function update(Request $request, $id)
     {
        $request->validate([
-            'title'=> 'required|string|max:225|unique:services,title,' . $id . ',service_id',
+            'title'=> 'required|string|max:225' . $id . ',service_id',
             'image'       => 'nullable|image|mimes:jpg,jpeg,png|max:5120',
             'description' => 'required|string',
         ]);

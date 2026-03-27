@@ -10,7 +10,12 @@
             <div class="card-body">
                 <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
-                <input type="text" name="title" id="title" class="form-control">
+                <input type="text" name="title" id="title" class="form-control @error('title') is-invalid @enderror" value="{{$sliders->title}}">
+                @error('title')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
             </div>
             <div class="mb-3">
                 <label for="image" class="form-label">Image</label>
@@ -18,12 +23,17 @@
             </div>
             <div class="mb-3">
                 <label for="description" class="form-label">Description</label>
-                <textarea name="description" id="description" class="form-control" rows="5"></textarea>
+                <textarea name="description" id="description" class="form-control @error('description') is-invalid @enderror" rows="5">{{$sliders->description}}</textarea>
+                @error('description')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
             </div>
             </div>
             <div class="card-footer">
-                <button type="submit" class="btn btn-success btn-block">Update</button>
-                <a href="{{ route('sliders.index') }}" class="btn btn-secondary btn-block">Back</a>
+                <button type="submit" class="btn btn-success btn-sm">Update</button>
+                <a href="{{ route('sliders.index') }}" class="btn btn-secondary btn-sm">Back</a>
             </div>
             </form>
         </div>

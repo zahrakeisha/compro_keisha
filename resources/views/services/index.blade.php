@@ -9,8 +9,10 @@
 <div class="row">
     <div class="col-12">
         <div class="card">
-            <div class="card-header">
+            <div class="card-header d-flex align-items-center">
                 <h3>Data Service</h3>
+                <a href="{{ route('service.create') }}" class="btn btn-primary btn-sm ml-auto">+ Add Service</a>
+
             </div>
             <div class="card-body table-responsive">
                 <table id="table" class="table table-striped table-hover m-2">
@@ -24,7 +26,7 @@
             <th>Created</th>
             <th>Updated</th>
             <th>
-                <a href="{{ route('service.create') }}" class="btn btn-primary btn-sm">+ Add Service</a>
+                Action
             </th>
         </tr>
     </thead>

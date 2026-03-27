@@ -11,15 +11,25 @@
             <div class="card-body">
                 <div class="mb-3">
                     <label class="form-label" for="type">Type</label>
-                    <select name="type" id="type" class="form-control" id="type">
+                    <select name="type" id="type" class="form-control @error('type') is-invalid @enderror">
                         <option value="">Choose Type</option>
-                        <option value="vision">Vision</option>
-                        <option value="mission">Missions</option>
+                        <option value="vision" {{ old('type') == 'vision' ? 'selected' : '' }}>Vision</option>
+                        <option value="mission" {{ old('type') == 'mission' ? 'selected' : '' }}>Missions</option>
                     </select>
+                    @error('type')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
                 <div class="mb-3">
                      <label class="form-label" for="content">Content</label>
-                     <textarea name="content" id="content" class="form-control" rows="5"></textarea>
+                     <textarea name="content" id="content" class="form-control @error('content') is-invalid @enderror" rows="5">{{ old('content')}}</textarea>
+                     @error('type')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
             </div>
             <div class="card-footer">

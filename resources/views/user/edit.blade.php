@@ -10,15 +10,32 @@
             {{csrf_field()}}
             @method('PUT')
             <div class="card-body">
-                <label>Name</label>
-                <input type="text" name="name" class="form-control" value="{{$dataedituser->name}}"required>
-                <label>Email</label>
-                <input type="email" name="email" class="form-control" value="{{$dataedituser->email}}"required>
-                <label>password</label>
-                <input type="password" name="password" class="form-control" value="">
+                <div class="mb-3">
+                    <label class="form-label">Name</label>
+                    <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{$dataedituser->name}}">
+                    @error('name')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" value="{{$dataedituser->email}}">
+                    @error('email')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">password</label>
+                    <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" value="">
+                    </div>
             </div>
             <div class="card-footer">
                 <button type="submit" class="btn btn-success btn-sm">update</button>
+                <a href="{{ route('user.index') }}" class="btn btn-secondary btn-sm">Back</a>
             </div>
             </form>
         </div>

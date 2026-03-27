@@ -41,7 +41,7 @@ class ClientController extends Controller
         $request->validate([
             'name'=> 'required|string|max:255',
             'description'=>'nullable|string',
-            'logo'=> 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'logo'=> 'required|image|mimes:jpg,jpeg,png|max:2048',
             'service_id'=>'required', 
         ]);
 

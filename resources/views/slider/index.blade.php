@@ -9,8 +9,9 @@
 <div class="row">
     <div class="col-12">
         <div class="card">
-            <div class="card-header">
+            <div class="card-header d-flex align-items-center">
                 <h3>Data Sliders</h3>
+                <a href="{{ route('sliders.create') }}" class="btn btn-primary btn-sm ml-auto">+ Add Sliders</a>
             </div>
             <div class="card-body table-responsive">
                 <table id="table" class="table table-striped table-hover m-2">
@@ -22,7 +23,7 @@
             <th>Description</th>
             <th>Status</th>
             <th>
-                <a href="{{ route('sliders.create') }}" class="btn btn-primary btn-sm">+ Add Sliders</a>
+                Action
             </th>
         </tr>
     </thead>

@@ -11,20 +11,30 @@
             <div class="card-body">
                 <div class="mb-3">
                     <label for="title" class="form-label">Title</label>
-                    <input type="text" name="title" class="form-control" id="title">
+                    <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" id="title" value="{{ old('title') }}">
+                    @error('title')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
                 <div class="mb-3">
                     <label for="image" class="form-label">Image</label>
-                    <input type="file" class="form-control" id="image" name="image">
+                    <input type="file" class="form-control form-control @error('image') is-invalid @enderror"" id="image" name="image">
                 </div>
                 <div class="mb-3">
                     <label for="description" class="form-label">Description</label>
-                    <textarea name="description" class="form-control" id="description" rows="5"></textarea>
+                    <textarea name="description" class="form-control @error('description') is-invalid @enderror" id="description" rows="5">{{ old('description') }}</textarea>
+                    @error('description')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
             </div>
             <div class="card-footer">
-                <button type="submit" class="btn btn-primary btn-block">Save</button>
-                <a href="{{ route('service.index') }}" class="btn btn-secondary btn-block">Back</a>
+                <button type="submit" class="btn btn-primary btn-sm">Save</button>
+                <a href="{{ route('service.index') }}" class="btn btn-secondary btn-sm">Back</a>
             </div>
             </form>
         </div>

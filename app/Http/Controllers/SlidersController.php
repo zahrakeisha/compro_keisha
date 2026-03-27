@@ -37,8 +37,8 @@ class SlidersController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title'=> 'required|string|max:225|unique:home_sliders',
-            'image'       => 'nullable|image|mimes:jpg,jpeg,png|max:5120',
+            'title'=> 'required|string|max:225',
+            'image'       => 'required|image|mimes:jpg,jpeg,png|max:5120',
             'description' => 'required|string',
         ]);
 
@@ -89,7 +89,7 @@ class SlidersController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'title'=> 'required|string|max:225|unique:home_sliders',
+            'title'=> 'required|string|max:225',
             'image'       => 'nullable|image|mimes:jpg,jpeg,png|max:5120',
             'description' => 'required|string',
         ]);

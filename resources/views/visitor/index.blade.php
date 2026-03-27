@@ -14,10 +14,10 @@
 
                     <form method="GET">
                         <select name="filter" onchange="this.form.submit()" class="form-control">
-                            <option value="all" {{ request('filter','all') == 'all' ? 'selected' : '' }}>Semua</option>
-                            <option value="week" {{ request('filter') == 'week' ? 'selected' : '' }}>Minggu Ini</option>
-                            <option value="month" {{ request('filter') == 'month' ? 'selected' : '' }}>Bulan Ini</option>
-                            <option value="year" {{ request('filter') == 'year' ? 'selected' : '' }}>Tahun Ini</option>
+                            <option value="all" {{ request('filter','all') == 'all' ? 'selected' : '' }}>All Time</option>
+                            <option value="week" {{ request('filter') == 'week' ? 'selected' : '' }}>This Week</option>
+                            <option value="month" {{ request('filter') == 'month' ? 'selected' : '' }}>This Month</option>
+                            <option value="year" {{ request('filter') == 'year' ? 'selected' : '' }}>This Year</option>
                         </select>
                     </form>
                 </div>

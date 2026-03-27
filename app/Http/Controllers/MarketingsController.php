@@ -82,7 +82,7 @@ class MarketingsController extends Controller
     public function update(Request $request, $id)
     {   
         $request->validate([
-            'name' => 'required|string|max:255|unique:contacts',
+            'name' => 'required|string|max:255',
             'phone' => 'required',
             'possition' => 'required|string',
         ]);
