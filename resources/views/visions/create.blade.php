@@ -25,7 +25,7 @@
                 <div class="mb-3">
                      <label class="form-label" for="content">Content</label>
                      <textarea name="content" id="content" class="form-control @error('content') is-invalid @enderror" rows="5">{{ old('content')}}</textarea>
-                     @error('type')
+                     @error('content')
                         <div class="invalid-feedback">
                             {{ $message }}
                         </div>
@@ -33,8 +33,8 @@
                 </div>
             </div>
             <div class="card-footer">
-                    <button type="submit" class="btn btn-primary btn-block">Save</button>
-                    <a href="{{ route('visions.index') }}" class="btn btn-secondary btn-block">Back</a>
+                    <button type="submit" class="btn btn-primary btn-sm">Save</button>
+                    <a href="{{ route('visions.index') }}" class="btn btn-secondary btn-sm">Back</a>
             </div>
             </form>
         </div>

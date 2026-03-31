@@ -11,7 +11,7 @@
         <div class="card">
             <div class="card-header d-flex align-items-center">
                 <h3>Data Blogs</h3>
-                <a href="{{ route('blog.create') }}" class="btn btn-primary btn-sm ml-auto">+ Add blog</a>
+                <a href="{{ route('blog.create') }}" class="btn btn-primary btn-sm ml-auto"><i class="fas fa-plus"></i> Add blog</a>
             </div>
             <div class="card-body table-responsive">
                 <table id="table" class="table table-striped table-hover m-2">
@@ -42,7 +42,7 @@
                                 -
                                 @endif
                             </td>
-                            <td>{{ $v->content }}</td>
+                            <td>{!! $v->content !!}</td>
                             <td>
                                 <form action ="{{ route('blog.destroy', $v->blog_id) }}" method="POST" style="display:inline">
                                     {{ csrf_field() }}

@@ -11,7 +11,7 @@
         <div class="card">
             <div class="card-header d-flex align-items-center">
                 <h3>Data Service</h3>
-                <a href="{{ route('service.create') }}" class="btn btn-primary btn-sm ml-auto">+ Add Service</a>
+                <a href="{{ route('service.create') }}" class="btn btn-primary btn-sm ml-auto"><i class="fas fa-plus"></i> Add Service</a>
 
             </div>
             <div class="card-body table-responsive">
@@ -39,7 +39,7 @@
             <td>
                 <img src="{{ asset('storage/'.$v->image) }}" width="60">
             </td>
-            <td>{{ $v->description }}</td>
+            <td>{!! $v->description !!}</td>
             <td>{{ $v->created_at->format('d M Y') }} <br><small>{{ $v->created_at->format('H:i') }}</small></td>
             <td>{{ $v->updated_at->format('d M Y') }} <br><small>{{ $v->updated_at->format('H:i') }}</small></td>
             <td>

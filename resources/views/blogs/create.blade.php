@@ -19,7 +19,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="content" class="form-tabel">content</label>
-                    <textarea name="content" id="content" class="form-control"></textarea>
+                    <textarea name="content" id="editor" class="form-control"></textarea>
                 </div>
             </div>
             <div class="card-footer">
@@ -31,3 +31,12 @@
 </div>
 @endsection
     
+@push('js')
+<script>
+ClassicEditor
+    .create(document.querySelector('#editor'))
+    .catch(error => {
+        console.error(error);
+    });
+</script>
+@endpush

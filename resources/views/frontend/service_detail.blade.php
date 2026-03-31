@@ -11,7 +11,7 @@
             <img src="{{ asset('storage/'.$servicesdetail->image) }}" alt="{{ $servicesdetail->title }}">
         </div>
         <div class="service-text">
-            <p>{{ $servicesdetail->description }}</p>
+            <p>{!! $servicesdetail->description !!}</p>
         </div>
     </div>
 </section>

@@ -12,7 +12,7 @@
         <div class="card">
             <div class="card-header d-flex align-items-center">
                 <h3>Data vision & missions</h3>
-                <a href="{{ route('visions.create') }}" class="btn btn-primary btn-sm ml-auto">+ Add</a>
+                <a href="{{ route('visions.create') }}" class="btn btn-primary btn-sm ml-auto"><i class="fas fa-plus"></i> Add</a>
             </div>
             <div class="card-body table-responsive">
                 <table id="table" class="table table-striped table-hover m-2">

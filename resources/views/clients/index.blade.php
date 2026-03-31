@@ -11,7 +11,7 @@
         <div class="card">
             <div class="card-header d-flex align-items-center">
                 <h3>Data Clients</h3>
-                <a href="{{ route('client.create') }}" class="btn btn-primary btn-sm ml-auto">+ Add Client</a>
+                <a href="{{ route('client.create') }}" class="btn btn-primary btn-sm ml-auto"><i class="fas fa-plus"></i> Add Client</a>
             </div>
             <div class="card-body table-responsive">
                 <table id="table" class="table table-striped table-hover m-2">

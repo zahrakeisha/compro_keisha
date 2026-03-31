@@ -39,8 +39,8 @@
               </p>
             </a>
           </li>
-          <li class="nav-item {{ request()->is('user*','service*','client*') ? 'menu-open' : '' }}">
-            <a href="#" class="nav-link {{ request()->is('user*','service*','client*') ? 'active' : '' }}">
+          <li class="nav-item {{ request()->is('user*','service*','client*','visions*' ) ? 'menu-open' : '' }}">
+            <a href="#" class="nav-link {{ request()->is('user*','service*','client*','visions*') ? 'active' : '' }}">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Data Master
@@ -50,32 +50,38 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="/user" class="nav-link {{ request()->is('user*') ? 'active' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="far fa-user nav-icon"></i>
                   <p>Data User</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="/service" class="nav-link {{ request()->is('service*') ? 'active' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-briefcase nav-icon"></i>
                   <p>Data Services</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/organization" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Data Organization</p>
+                <a href="/visions" class="nav-link {{ request()->is('visions*') ? 'active' : '' }}">
+                  <i class="fas fa-bullseye nav-icon"></i>
+                  <p>Data Visions Missions</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="/client" class="nav-link {{ request()->is('client*') ? 'active' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="far fa-handshake nav-icon"></i>
                   <p>Data Clients</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/visitor" class="nav-link {{ request()->is('client*') ? 'active' : '' }}">
+                  <i class="far fa-eye nav-icon"></i>
+                  <p>Data Visitor</p>
                 </a>
               </li>
             </ul>
           </li>
-          <li class="nav-item {{ request()->is('sliders*','visions*','marketing*','blog*','contactinfo*','about*', 'nav*', 'footer*') ? 'menu-open' : '' }}">
-            <a href="#" class="nav-link {{ request()->is('sliders*','visions*','marketing*','blog*','contactinfo*','about*', 'nav*', 'footer*') ? 'active' : '' }}">
+          <li class="nav-item {{ request()->is('sliders*','marketing*','blog*','contactinfo*','about*', 'nav*', 'footer*') ? 'menu-open' : '' }}">
+            <a href="#" class="nav-link {{ request()->is('sliders*','marketing*','blog*','contactinfo*','about*', 'nav*', 'footer*') ? 'active' : '' }}">
               <i class="nav-icon fas fa-globe"></i>
               <p>
                 Website Content
@@ -85,56 +91,51 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="/sliders" class="nav-link {{ request()->is('sliders*') ? 'active' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-film nav-icon"></i>
                   <p>Data Slider</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="/visions" class="nav-link {{ request()->is('visions*') ? 'active' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Data Visions Missions</p>
-                </a>
-              </li>
+        
               <li class="nav-item">
                 <a href="/contactinfo" class="nav-link {{ request()->is('contactinfo*') ? 'active' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-address-book nav-icon"></i>
                   <p>Data Contact Info</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="/blog" class="nav-link {{ request()->is('blog*') ? 'active' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-newspaper nav-icon"></i>
                   <p>Data Blogs</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="/about" class="nav-link {{ request()->is('about*') ? 'active' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-building nav-icon"></i>
                   <p>Data About us</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="/marketing" class="nav-link {{ request()->is('marketing*') ? 'active' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-users nav-icon"></i>
                   <p>Data Marketings</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="/nav" class="nav-link {{ request()->is('nav*') ? 'active' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-bars nav-icon"></i>
                   <p>Data Navbar Profile</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="/footer" class="nav-link {{ request()->is('footer*') ? 'active' : '' }}">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-info-circle nav-icon"></i>
                   <p>Data Footer Profile</p>
                 </a>
               </li>
             </ul>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="/profile" class="nav-link {{ request()->is('profile*') ? 'active' : '' }}"">
               <i class="nav-icon fas fa-user"></i>
               <p>
                 About
@@ -143,7 +144,7 @@
           </li>
           <li class="nav-item">
             <a href="/contact" class="nav-link {{ request()->is(['contact', 'contact/*']) ? 'active' : '' }}">
-              <i class="nav-icon fas fa-phone"></i>
+              <i class="nav-icon fas fa-envelope"></i>
               <p>
                 Contact Messages
               </p>

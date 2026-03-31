@@ -10,7 +10,7 @@
         <div class="card">
             <div class="card-header d-flex align-items-center">
                 <h3>Data Navbar</h3>
-                <a href="{{ route('nav.create') }}" class="btn btn-primary btn-sm ml-auto">+ Add Nav Profile</a>
+                <a href="{{ route('nav.create') }}" class="btn btn-primary btn-sm ml-auto"><i class="fas fa-plus"></i> Add Nav Profile</a>
             </div>
             <div class="card-body table-responsive">
                 <table id="table" class="table table-striped table-hover m-2">

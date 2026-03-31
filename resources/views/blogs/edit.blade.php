@@ -20,7 +20,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="content" class="form-label">content</label>
-                    <textarea name="content" id="content" class="form-control">{{$dataeditblog->content}}</textarea>
+                    <textarea name="content" id="editor" class="form-control">{{$dataeditblog->content}}</textarea>
                 </div>
             </div>
             <div class="card-footer">
@@ -31,3 +31,12 @@
     </div>
 </div>
 @endsection
+@push('js')
+<script>
+ClassicEditor
+    .create(document.querySelector('#editor'))
+    .catch(error => {
+        console.error(error);
+    });
+</script>
+@endpush

@@ -14,7 +14,7 @@
 
     <div class="festival-text">
         <p>Penulis: {{ $blogs->users->name }}</p>
-        <p>{{ $blogs->content }}</p>
+        <p>{!! $blogs->content !!}</p>
     </div>
 
     <a href="/blogger" class="festival-btn">← Kembali ke Blog</a>
