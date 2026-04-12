@@ -20,7 +20,7 @@
             <th>no</th>
             <th>Name</th>
             <th>Phone</th>
-            <th>Marketing Possition</th>
+            <th>Status</th>
             <th>
                 Action
             </th>
@@ -32,13 +32,23 @@
             <td>{{ $loop->iteration}}</td>
             <td>{{ $v->name }}</td>
             <td>{{ $v->phone }}</td>
-            <td>{{ $v->possition }}</td>
+            <td>
+                @if($v->status == 1)
+                <a href="{{ route('marketing.nonactive',$v->marketing_id) }}" class="btn btn-outline-success btn-sm">
+                Active
+                </a>
+                @else
+                <a href="{{ route('marketing.active',$v->marketing_id) }}" class="btn btn-outline-danger btn-sm">
+                Nonactive
+                </a>
+                @endif
+            </td>
             <td>
                 <form action ="{{ route('marketing.destroy', $v->marketing_id) }}" method="POST" style="display:inline">
                     {{ csrf_field() }}
                     @method('DELETE')
-                    <a href="{{ route('marketing.edit', $v->marketing_id) }}" class="btn btn-success btn-sm">Edit</a>
-                    <button type="submit" onclick="return confirm('Are you sure want to delete this marketing?')" class="btn btn-danger btn-sm">Delete</button>
+                    <a href="{{ route('marketing.edit', $v->marketing_id) }}" class="btn btn-success btn-sm"><i class="far fa-edit"></i></a>
+                    <button type="submit" onclick="return confirm('Are you sure want to delete this marketing?')" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
                 </form>
             </td>
         </tr>

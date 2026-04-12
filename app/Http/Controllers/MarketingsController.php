@@ -39,12 +39,12 @@ class MarketingsController extends Controller
         $request->validate([
             'name' => 'required|string|max:255|unique:contacts',
             'phone' => 'required',
-            'possition' => 'required|string',
+            
         ]);
         Marketing::create([
             'name' => $request->name,
             'phone' => $request->phone,
-            'possition' =>$request->possition,
+            
         ]);
         return redirect()->route('marketing.index')->with('success','Marketing added successfully');
     }
@@ -84,7 +84,7 @@ class MarketingsController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'phone' => 'required',
-            'possition' => 'required|string',
+           
         ]);
 
         $marketings = Marketing::findOrFail($id);
@@ -92,7 +92,7 @@ class MarketingsController extends Controller
         $marketings->update([
             'name' => $request->name,
             'phone' => $request->phone,
-            'possition' =>$request->possition,
+            
         ]);
         return redirect()->route('marketing.index')->with('success','Marketing updated successfully');
     }
@@ -107,5 +107,22 @@ class MarketingsController extends Controller
     {
         Marketing::where('marketing_id', $id)->delete();
         return redirect()->route('marketing.index');
+    }
+    public function active($id)
+    {
+        Marketing::where('marketing_id',$id)->update([
+            'status' => 1
+        ]);
+
+        return back();
+    }
+
+    public function nonactive($id)
+    {
+        Marketing::where('marketing_id',$id)->update([
+            'status' => 0
+        ]);
+
+        return back();
     }
 }

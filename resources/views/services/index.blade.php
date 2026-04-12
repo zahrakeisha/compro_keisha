@@ -1,3 +1,4 @@
+@php use Illuminate\Support\Str; @endphp
 @extends('template/layout')
 @section('title', 'Data Services')
 @section('content')
@@ -23,8 +24,7 @@
             <th>Slug</th>
             <th>Image</th>
             <th>Description</th>
-            <th>Created</th>
-            <th>Updated</th>
+           
             <th>
                 Action
             </th>
@@ -39,15 +39,14 @@
             <td>
                 <img src="{{ asset('storage/'.$v->image) }}" width="60">
             </td>
-            <td>{!! $v->description !!}</td>
-            <td>{{ $v->created_at->format('d M Y') }} <br><small>{{ $v->created_at->format('H:i') }}</small></td>
-            <td>{{ $v->updated_at->format('d M Y') }} <br><small>{{ $v->updated_at->format('H:i') }}</small></td>
+            <td>{!! Str::limit ($v->description, 60) !!}</td>
+           
             <td>
                 <form action ="{{ route('service.destroy', $v->service_id) }}" method="POST" style="display:inline">
                     {{ csrf_field() }}
                     @method('DELETE')
-                    <a href="{{ route('service.edit', $v->service_id) }}" class="btn btn-success btn-sm">Edit</a>
-                    <button type="submit" onclick="return confirm('Are you sure want to delete this service?')" class="btn btn-danger btn-sm">Delete</button>
+                    <a href="{{ route('service.edit', $v->service_id) }}" class="btn btn-success btn-sm"><i class="far fa-edit"></i></a>
+                    <button type="submit" onclick="return confirm('Are you sure want to delete this service?')" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
                 </form>
             </td>
         </tr>

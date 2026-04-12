@@ -11,6 +11,7 @@ use App\Contactinfo;
 use App\Marketing;
 use App\Sliders;
 use App\Clients;
+use App\Footer;
 
 
 
@@ -50,7 +51,7 @@ class FrontController extends Controller
 
     public function contacts()
     {
-        $marketings = Marketing::all();
+        $marketings = Marketing::where('status', 1)->get();
         $contacts = Contactinfo::where('status',1)->first();
         return view('frontend.contact', compact('contacts', 'marketings'));
     }
@@ -60,5 +61,6 @@ class FrontController extends Controller
         $servicesdetail = Services::findOrFail($id);
         return view('frontend.service_detail', compact('servicesdetail'));
     }
+    
     
 }

@@ -21,9 +21,16 @@
                 <label for="image" class="form-label">Image</label>
                 <input type="file" name="image" id="image" class="form-control">
             </div>
+            <div class="form-group">
+                        @if($sliders->image)
+                        <label for="image" class="form-label">Preview Photo</label>
+                        <img src="{{ asset('storage/' . $sliders->image) }}"
+                            alt="{{ $sliders->title }}" class="img-thumbnail" width="200"></p>
+                        @endif
+                </div>
             <div class="mb-3">
                 <label for="description" class="form-label">Description</label>
-                <textarea name="description" id="description" class="form-control @error('description') is-invalid @enderror" rows="5">{{$sliders->description}}</textarea>
+                <textarea name="description" id="editor" class="form-control @error('description') is-invalid @enderror" rows="5">{{$sliders->description}}</textarea>
                 @error('description')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -40,5 +47,14 @@
     </div>
 </div>
 @endsection
+@push('js')
+<script>
+ClassicEditor
+    .create(document.querySelector('#editor'))
+    .catch(error => {
+        console.error(error);
+    });
+</script>
+@endpush
 
     

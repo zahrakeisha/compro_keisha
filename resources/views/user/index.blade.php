@@ -36,8 +36,8 @@
                 <form action ="{{ route('user.destroy', $v->user_id) }}" method="POST" style="display:inline">
                     {{ csrf_field() }}
                     @method('DELETE')
-                    <a href="{{ route('user.edit', $v->user_id) }}" class="btn btn-success btn-sm">Edit</a>
-                    <button type="submit" onclick="return confirm('Are you sure want to delete this user?')" class="btn btn-danger btn-sm">Delete</button>
+                    <a href="{{ route('user.edit', $v->user_id) }}" class="btn btn-success btn-sm"><i class="far fa-edit"></i></a>
+                    <button type="submit" onclick="return confirm('Are you sure want to delete this user?')" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
                 </form>
             </td>
         </tr>

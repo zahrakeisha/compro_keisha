@@ -18,6 +18,7 @@ use App\Http\Controllers\VisitorController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\NavController;
 use App\Http\Controllers\FooterController;
+use App\Http\Controllers\ReportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +41,7 @@ Route::middleware(['track'])->group(function () {
     Route::get('/blogger/{id}', [FrontController::class, 'blogsDetail'])->name('blogs.detail');
     Route::get('/contactsfront', [FrontController::class, 'contacts']);
     Route::get('/servicedetail/{id}', [FrontController::class, 'servicedetail'])->name('service.detail');
+    Route::get('/servicedetail/{slug}', [ServiceController::class, 'show'])->name('service.detail.show');
 });
 
 
@@ -115,6 +117,8 @@ Route::post('/marketing', [MarketingsController::class, 'store'])->name('marketi
 Route::get('/marketing/{id}/edit', [MarketingsController::class, 'edit'])->name('marketing.edit');
 Route::put('/marketing/{id}', [MarketingsController::class, 'update'])->name('marketing.update');
 Route::delete('/marketing/{id}', [MarketingsController::class, 'destroy'])->name('marketing.destroy');
+Route::get('/marketing/{id}/active', [MarketingsController::class, 'active'])->name('marketing.active');
+Route::get('/marketing/{id}/nonactive', [MarketingsController::class, 'nonactive'])->name('marketing.nonactive');
 
 
 //route contact info
@@ -172,6 +176,10 @@ Route::post('/footer', [FooterController::class, 'store'])->name('footer.store')
 Route::get('/footer/{id}/edit', [FooterController::class, 'edit'])->name('footer.edit');
 Route::put('/footer/{id}',[FooterController::class, 'update'])->name('footer.update');
 Route::delete('/footer/{id}', [FooterController::class, 'destroy'])->name('footer.destroy');
+Route::get('/footer/{id}/active', [FooterController::class, 'active'])->name('footer.active');
+Route::get('/footer/{id}/nonactive', [FooterController::class, 'nonactive'])->name('footer.nonactive');
 
 //route visitor
 Route::get('/visitor', [VisitorController::class, 'index'])->name('visitor.index');
+
+Route::post('/report/visitor/generate', [ReportController::class, 'generatePDF'])->name('report.visitor.generate');

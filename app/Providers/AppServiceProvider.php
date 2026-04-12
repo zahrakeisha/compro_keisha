@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use App\Navprofile;
 use App\Services;
+use App\Footer;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -29,6 +30,7 @@ class AppServiceProvider extends ServiceProvider
         view()->share([
         'nav' => Navprofile::where('status', 1)->first(),
         'services' => Services::all(),
+        'footer' => Footer::where('status', 1)->first(), 
         ]);
     }
 }

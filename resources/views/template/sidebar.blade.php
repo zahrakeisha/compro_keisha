@@ -39,8 +39,8 @@
               </p>
             </a>
           </li>
-          <li class="nav-item {{ request()->is('user*','service*','client*','visions*' ) ? 'menu-open' : '' }}">
-            <a href="#" class="nav-link {{ request()->is('user*','service*','client*','visions*') ? 'active' : '' }}">
+          <li class="nav-item {{ request()->is('user*','service*','client*','visions*','visitor*' ) ? 'menu-open' : '' }}">
+            <a href="#" class="nav-link {{ request()->is('user*','service*','client*','visions*','visitor*') ? 'active' : '' }}">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Data Master
@@ -73,7 +73,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/visitor" class="nav-link {{ request()->is('client*') ? 'active' : '' }}">
+                <a href="/visitor" class="nav-link {{ request()->is('visitor*') ? 'active' : '' }}">
                   <i class="far fa-eye nav-icon"></i>
                   <p>Data Visitor</p>
                 </a>

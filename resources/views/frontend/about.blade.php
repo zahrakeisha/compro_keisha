@@ -14,7 +14,7 @@
 
         <div class="about-text">
             <p>
-                {{ $abouts->description }}
+                {!! $abouts->description !!}
             </p>
         </div>
     </div>

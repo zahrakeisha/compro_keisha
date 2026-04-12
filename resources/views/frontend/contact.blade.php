@@ -6,6 +6,7 @@
     <h2>Kontak Kami</h2>
 
     <div class="row">
+        @if(!empty($contacts))
         {!! $contacts->gmaps !!}
 
         <div class="contact-info">
@@ -34,9 +35,9 @@
             </div>
 
             <h3>Office</h3>
-            <p>{{ $contacts->address }}</p>
+            <p>{!! $contacts->address !!}</p>
         </div>
-
+        @endif
     </div>
 </section>
 

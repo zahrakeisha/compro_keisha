@@ -5,7 +5,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <h3>Data contact</h3>
+                <h3>Data contact Message</h3>
             </div>
             <div class="card-body table-responsive">
                 <table id="table" class="table table-striped table-hover m-2">

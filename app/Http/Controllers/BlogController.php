@@ -50,7 +50,7 @@ class BlogController extends Controller
         if(Blogs::where('slug', $slug)->exists()) {
             $slug = $slug .'-'. time();
         }
-        $thumbnail = null; 
+        $thumbnail = 'no_images.png'; 
         if ($request->hasFile('thumbnail')) { 
            $thumbnail = $request->file('thumbnail')->store('blogs', 'public');
         }
@@ -113,9 +113,9 @@ class BlogController extends Controller
         }
         $thumbnail = $dataupdate->thumbnail;
         if ($request->hasFile('thumbnail')){
-           if ($dataupdate->thumbnail){
-              \Storage::disk('public')->delete($dataupdate->thumbnail);
-              }
+         //  if ($dataupdate->thumbnail){
+         //     \Storage::disk('public')->delete($dataupdate->thumbnail);
+         //     }
         $thumbnail = $request->file('thumbnail')->store('blogs', 'public');
         }
         $dataupdate->update([

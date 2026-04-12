@@ -1,3 +1,4 @@
+@php use Illuminate\Support\Str; @endphp
 @extends('template/layout')
 @section('title', 'Data Sliders')
 @section('content')
@@ -35,7 +36,7 @@
             <td>
                 <img src="{{ asset('storage/'.$v->image) }}" width="60">
             </td>
-            <td>{{ $v->description }}</td>
+            <td>{!! Str::limit ($v->description, 60) !!}</td>
             <td>
                 @if($v->status == 1)
                 <a href="{{ route('sliders.nonactive',$v->sliders_id) }}" class="btn btn-outline-success btn-sm">
@@ -51,8 +52,8 @@
                 <form action ="{{ route('sliders.destroy', $v->sliders_id) }}" method="POST" style="display:inline">
                     {{ csrf_field() }}
                     @method('DELETE')
-                    <a href="{{ route('sliders.edit', $v->sliders_id) }}" class="btn btn-success btn-sm">Edit</a>
-                    <button type="submit" onclick="return confirm('Are you sure want to delete this sliders?')" class="btn btn-danger btn-sm">Delete</button>
+                    <a href="{{ route('sliders.edit', $v->sliders_id) }}" class="btn btn-success btn-sm"><i class="far fa-edit"></i></a>
+                    <button type="submit" onclick="return confirm('Are you sure want to delete this sliders?')" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
                 </form>
             </td>
         </tr>

@@ -24,7 +24,7 @@
                 </div>
                 <div class="mb-3">
                      <label class="form-label" for="content">Content</label>
-                     <textarea name="content" id="content" class="form-control @error('content') is-invalid @enderror" rows="5">{{ old('content')}}</textarea>
+                     <textarea name="content" id="editor" class="form-control @error('content') is-invalid @enderror" rows="5">{{ old('content')}}</textarea>
                      @error('content')
                         <div class="invalid-feedback">
                             {{ $message }}
@@ -42,6 +42,15 @@
 </div>
 @endsection
 
+@push('js')
+<script>
+ClassicEditor
+    .create(document.querySelector('#editor'))
+    .catch(error => {
+        console.error(error);
+    });
+</script>
+@endpush
 
 
 

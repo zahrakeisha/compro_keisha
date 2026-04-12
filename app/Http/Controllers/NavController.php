@@ -38,7 +38,7 @@ class NavController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:225',
-            'logo' => 'nullable|image|mimes:jpg,jpeg,png|max:5120',
+            'logo' => 'required|image|mimes:jpg,jpeg,png|max:5120',
         ]);
         $logo = null; 
         if ($request->hasFile('logo')) { 

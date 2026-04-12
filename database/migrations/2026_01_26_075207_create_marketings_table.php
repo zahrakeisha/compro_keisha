@@ -17,7 +17,7 @@ class CreateMarketingsTable extends Migration
             $table->bigIncrements('marketing_id');
             $table->string('name');
             $table->string('phone');
-            $table->string('possition');
+            $table->boolean('status')->default(0);
             $table->timestamps();
         });
     }

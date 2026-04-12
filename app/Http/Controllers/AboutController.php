@@ -44,8 +44,8 @@ class AboutController extends Controller
         ]);
 
 
-        $logo = null;
-        $image = null;
+        $logo = 'no_images.png';
+        $image = 'no_images.png';
         if($request->hasFile('logo')){
             $logo = $request->file('logo')->store('abouts', 'public');
         }

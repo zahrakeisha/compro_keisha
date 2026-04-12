@@ -1,3 +1,4 @@
+@php use Illuminate\Support\Str; @endphp
 @extends('template/layout')
 @section('title', 'Data Contact Info')
 @section('content')
@@ -19,7 +20,7 @@
         <tr>
             <th>no</th>
             <th>Name</th>
-            <th>Gmaps</th>
+            <th>Coordinate Point</th>
             <th>Email</th>
             <th>Phone</th>
             <th>Address</th>
@@ -34,10 +35,28 @@
         <tr>
             <td>{{ $loop->iteration}}</td>
             <td>{{ $v->name }}</td>
-            <td>{{ $v->gmaps }}</td>
+            @php
+            $lat = null;
+            $lng = null;
+
+            if (preg_match('/!2d(-?\d+\.\d+)!3d(-?\d+\.\d+)/', $v->gmaps, $match)) {
+                $lng = $match[1];
+                $lat = $match[2];
+            } elseif (preg_match('/!3d(-?\d+\.\d+)!4d(-?\d+\.\d+)/', $v->gmaps, $match)) {
+                $lat = $match[1];
+                $lng = $match[2];
+            } elseif (preg_match('/q=(-?\d+\.\d+),(-?\d+\.\d+)/', $v->gmaps, $match)) {
+                $lat = $match[1];
+                $lng = $match[2];
+            }
+            @endphp
+            <td>
+                {{ $lat && $lng ? $lat . ', ' . $lng : 'Koordinat tidak ditemukan' }}
+            </td>
             <td>{{ $v->email }}</td>
             <td>{{ $v->phone }}</td>
-            <td>{{ $v->address }}</td>
+            
+            <td>{!! Str::limit ($v->address, 60) !!}</td>
             <td>
                 @if($v->status == 1)
                 <a href="{{ route('contactinfo.nonactive',$v->contactfo_id) }}" class="btn btn-outline-success btn-sm">
@@ -54,8 +73,8 @@
                 <form action ="{{ route('contactinfo.destroy', $v->contactfo_id) }}" method="POST" style="display:inline">
                     {{ csrf_field() }}
                     @method('DELETE')
-                    <a href="{{ route('contactinfo.edit', $v->contactfo_id) }}" class="btn btn-success btn-sm"><i class="far fa-edit"></i> Edit</a>
-                    <button type="submit" onclick="return confirm('Are you sure want to delete this contactinfo?')" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i> Delete</button>
+                    <a href="{{ route('contactinfo.edit', $v->contactfo_id) }}" class="btn btn-success btn-sm"><i class="far fa-edit"></i></a>
+                    <button type="submit" onclick="return confirm('Are you sure want to delete this contactinfo?')" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
                 </form>
             </td>
         </tr>

@@ -4,7 +4,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <h3>edit Info Contact</h3>
+                <h3>edit Contact info</h3>
             </div>
             <form action="{{ route('contactinfo.update', $contactinfo->contactfo_id) }}" method="POST" enctype="multipart/form-data">
             {{csrf_field()}}
@@ -15,8 +15,8 @@
                     <input type="text" name="name" id="name" class="form-control" value="{{$contactinfo->name}}">
                 </div>
                 <div class="mb-3">
-                    <label for="gmaps" class="form-label">Gmaps</label>
-                    <textarea type="text" name="gmaps" id="gmaps" class="form-control" value="{{$contactinfo->gmaps}}"></textarea>
+                    <label for="gmaps" class="form-label">Embed Maps Link</label>
+                    <textarea type="text" name="gmaps" id="gmaps" class="form-control" >{{$contactinfo->gmaps}}</textarea>
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
@@ -28,14 +28,24 @@
                 </div>
                 <div class="mb-3">
                     <label for="address" class="form-label">Address</label>
-                    <textarea type="text" name="address" id="address" class="form-control" value="{{$contactinfo->address}}"></textarea>
+                    <textarea type="text" name="address" id="editor" class="form-control" >{{$contactinfo->address}}</textarea>
                 </div>
             </div>
             <div class="card-footer">
-                <button type="submit">Update</button>
+                <button type="submit" class="btn btn-success btn-sm">Update</button>
+                <a href="{{ route('contactinfo.index') }}" class="btn btn-secondary btn-sm">Back</a>
             </div>
             </form>
         </div>
     </div>
 </div>
 @endsection
+@push('js')
+<script>
+ClassicEditor
+    .create(document.querySelector('#editor'))
+    .catch(error => {
+        console.error(error);
+    });
+</script>
+@endpush

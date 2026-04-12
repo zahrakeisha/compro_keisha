@@ -22,7 +22,7 @@
             </div>
 
             <div class="hero-desc">
-                <p>{{ $slider->description }}</p>
+                <p>{!! $slider->description !!}</p>
             </div>
         </div>
         @endforeach

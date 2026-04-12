@@ -1,3 +1,4 @@
+@php use Illuminate\Support\Str; @endphp
 @extends('template/layout')
 @section('title', 'Data Blogs')
 @section('content')
@@ -42,13 +43,13 @@
                                 -
                                 @endif
                             </td>
-                            <td>{!! $v->content !!}</td>
+                            <td>{!! Str::limit ($v->content, 60) !!}</td>
                             <td>
                                 <form action ="{{ route('blog.destroy', $v->blog_id) }}" method="POST" style="display:inline">
                                     {{ csrf_field() }}
                                     @method('DELETE')
-                                    <a href="{{ route('blog.edit', $v->blog_id) }}" class="btn btn-success btn-sm">Edit</a>
-                                    <button type="submit" onclick="return confirm('Are you sure want to delete this blog?')" class="btn btn-danger btn-sm">Delete</button>
+                                    <a href="{{ route('blog.edit', $v->blog_id) }}" class="btn btn-success btn-sm"><i class="far fa-edit"></i></a>
+                                    <button type="submit" onclick="return confirm('Are you sure want to delete this blog?')" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
                                 </form>
                             </td>
                         </tr>

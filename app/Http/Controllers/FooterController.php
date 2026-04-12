@@ -38,10 +38,10 @@ class FooterController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255|unique:footer',
-            'description' => 'string',
-            'instagram' => 'string',
-            'youtube' => 'string',
-            'facebook' => 'string',
+            'description' => 'nullable|string',
+            'instagram' => 'nullable|string',
+            'youtube' => 'nullable|string',
+            'facebook' => 'nullable|string',
         ]);
         Footer::create([
             'name' => $request->name,
@@ -87,10 +87,10 @@ class FooterController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'description' => 'string',
-            'instagram' => 'string',
-            'youtube' => 'string',
-            'facebook' => 'string',
+            'description' => 'nullable|string',
+            'instagram' => 'nullable|string',
+            'youtube' => 'nullable|string',
+            'facebook' => 'nullable|string',
         ]);
         $dataeditfoot = Footer::findOrFail($id);
         $dataeditfoot->update([
@@ -113,5 +113,23 @@ class FooterController extends Controller
     {
         Footer::where('footer_id', $id)->delete();
         return redirect()->route('footer.index');
+    }
+
+    public function active($id)
+    {
+        Footer::where('footer_id',$id)->update([
+            'status' => 1
+        ]);
+
+        return back();
+    }
+
+    public function nonactive($id)
+    {
+        Footer::where('footer_id',$id)->update([
+            'status' => 0
+        ]);
+
+        return back();
     }
 }

@@ -12,7 +12,12 @@
             <div class="card-body">
                 <div class="mb-3">
                     <label for="title" class="form-label">Title</label>
-                    <input type="text" name="title" id="title" class="form-control" value="{{$dataeditblog->title}}">
+                    <input type="text" name="title" id="title" class="form-control @error('title') is-invalid @enderror" value="{{$dataeditblog->title}}">
+                    @error('title')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
                 <div class="mb-3">
                     <label for="thumnail" class="form-label">thumbnail</label>
@@ -20,11 +25,17 @@
                 </div>
                 <div class="mb-3">
                     <label for="content" class="form-label">content</label>
-                    <textarea name="content" id="editor" class="form-control">{{$dataeditblog->content}}</textarea>
+                    <textarea name="content" id="editor" class="form-control @error('content') is-invalid @enderror">{{$dataeditblog->content}}</textarea>
+                    @error('content')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
             </div>
             <div class="card-footer">
-                <button type="submit" class="btn btn-success btn-block">Update</button>
+                <button type="submit" class="btn btn-success btn-sm">Update</button>
+                <a href="{{ route('blog.index') }}" class="btn btn-secondary btn-sm">Back</a>
             </div>
             </form>
         </div>

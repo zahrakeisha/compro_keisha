@@ -5,7 +5,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <h3>Create Data User</h3>
+                <h3>Add Data User</h3>
             </div>
 
              <form action="{{ route('user.store') }}" method="POST" enctype="multipart/form-data">

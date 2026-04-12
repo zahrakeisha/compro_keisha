@@ -6,7 +6,9 @@
     <div class="col-12">
         <div class="card">
             <div class="card-header d-flex justify-content-between align-items-center">
-                <h3 class="mb-0">Visitors</h3>
+                <h3 class="mb-0">
+                    Visitors
+                </h3>
                 <div class="d-flex align-items-center gap-2">
                     <span class="mr-3">
                         Total: <b>{{ $totalFiltered }}</b>
@@ -21,6 +23,13 @@
                         </select>
                     </form>
                 </div>
+                <form action="{{ route('report.visitor.generate') }}" method="POST" target="_blank" class="">
+                        {{csrf_field()}}
+                        <input type="hidden" name="filter" value="{{ $filter }}">
+                        <button type="submit" class="btn btn-danger mb-3">
+                           <i class="fas fa-print"></i> Print PDF
+                        </button>
+                    </form>
             </div>
             <div class="card-body table-responsive">
                 <table id="table" class="table table-striped table-hover m-2">
@@ -37,16 +46,14 @@
                         @foreach($visitor as $v)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $v->ip_address }}</td>
-                            <td>{{ $v->user_agent }}</td>
-                            <td>{{ $v->url }}</td>
-                            <td>{{ $v->created_at }}</td>
+                            <td >{{ $v->ip_address }}</td>
+                            <td title="{{ $v->user_agent }}">{{ $v->browser_short }}</td>
+                            <td title="{{ $v->url }}">{{ $v->url_short }}</td>
+                            <td>{{ date('d-m-Y', strtotime($v->created_at)) }}</td>
                         </tr>
                         @endforeach
                     </tbody>
-                </table>
-                <a href="{{ route('dashboard') }}" class="btn btn-secondary btn-sm">Back</a>
-                    
+                </table>                    
                             </div>
                         </div>
                     </div>

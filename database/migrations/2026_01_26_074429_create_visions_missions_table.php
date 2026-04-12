@@ -17,7 +17,7 @@ class CreateVisionsMissionsTable extends Migration
             $table->bigIncrements('vs_id');
             $table->enum('type', ['vision', 'mission']);
             $table->text('content');
-            $table->boolean('status')->default(0); //0 artinya nonaktif jadi pas nambah data baru dia tulisannya nonaktif dlu
+            $table->boolean('status')->default(0); //0 artinya nonaktif, jadi pas nambah data baru dia tulisannya nonaktif dlu
             $table->timestamps();
         });
     }

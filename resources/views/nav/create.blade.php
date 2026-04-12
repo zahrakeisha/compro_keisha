@@ -11,11 +11,21 @@
             <div class="card-body">
                 <div class="mb-3">
                     <label for="name" class="form-label">Company Name</label>
-                    <input type="text" name="name" id="name" class="form-control">
+                    <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}">
+                    @error('title')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
                 <div class="mb-3">
                     <label for="logo" class="form-label">Logo</label>
-                    <input type="file" name="logo" id="logo" class="form-control">
+                    <input type="file" name="logo" id="logo" class="form-control @error('logo') is-invalid @enderror">
+                    @error('logo')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
             </div>
             <div class="card-footer">

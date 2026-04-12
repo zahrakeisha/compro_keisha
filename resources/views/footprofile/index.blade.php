@@ -1,3 +1,4 @@
+@php use Illuminate\Support\Str; @endphp
 @extends('template/layout')
 @section('title', 'Footer Profile')
 @section('content')
@@ -34,17 +35,27 @@
                         <tr>
                             <td>{{ $loop->iteration}}</td>
                             <td>{{ $v->name }}</td>
-                            <td>{{ $v->description }}</td>
-                            <td>{{ $v->instagram }}</td>
-                            <td>{{ $v->youtube }}</td>
-                            <td>{{ $v->facebook }}</td>
-                            <td></td>
+                            <td>{!! $v->description !!}</td>
+                            <td>{{ Str::limit ($v->instagram,15) }}</td>
+                            <td>{{ Str::limit ($v->youtube,15) }}</td>
+                            <td>{{ Str::limit ($v->facebook,15) }}</td>
+                            <td>
+                                @if($v->status == 1)
+                                <a href="{{ route('footer.nonactive',$v->footer_id) }}" class="btn btn-outline-success btn-sm">
+                                Active
+                                </a>
+                                @else
+                                <a href="{{ route('footer.active',$v->footer_id) }}" class="btn btn-outline-danger btn-sm">
+                                Nonactive
+                                </a>
+                                @endif
+                            </td>
                             <td>
                                 <form action ="{{ route('footer.destroy', $v->footer_id) }}" method="POST" style="display:inline">
                                     {{ csrf_field() }}
                                     @method('DELETE')
-                                    <a href="{{ route('footer.edit', $v->footer_id) }}" class="btn btn-success btn-sm">Edit</a>
-                                    <button type="submit" onclick="return confirm('Are you sure want to delete this Footer?')" class="btn btn-danger btn-sm">Delete</button>
+                                    <a href="{{ route('footer.edit', $v->footer_id) }}" class="btn btn-success btn-sm"><i class="far fa-edit"></i></a>
+                                    <button type="submit" onclick="return confirm('Are you sure want to delete this Footer?')" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
                                 </form>
                             </td>
                         </tr>

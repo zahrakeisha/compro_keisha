@@ -8,7 +8,7 @@
         <div class="vm-card">
             <h2>Visi</h2>
             @if(!empty($vision))
-            <p>{{ $vision->content }}</p>
+            <p>{!! $vision->content !!}</p>
             @endif
         </div>
 
@@ -16,7 +16,7 @@
             <h2>Misi</h2>
             <ul>
                 @foreach($missions as $misi)
-                <li>{{ $misi->content }}</li>
+                <li>{!! $misi->content !!}</li>
                 @endforeach
             </ul>
         </div>

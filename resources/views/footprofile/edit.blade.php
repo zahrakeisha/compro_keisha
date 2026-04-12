@@ -12,11 +12,16 @@
             <div class="card-body">
                 <div class="mb-3">
                     <label for="name" class="form-label">Name</label>
-                    <input type="text" name="name" id="name" class="form-control" value="{{$dataeditfoot->name}}">
+                    <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" value="{{$dataeditfoot->name}}">
+                    @error('name')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
                 <div class="mb-3">
                     <label for="description" class="form-label">Description</label>
-                    <textarea type="text" name="description" id="name" class="form-control">{{$dataeditfoot->description}}</textarea>
+                    <textarea type="text" name="description" id="editor" class="form-control">{{$dataeditfoot->description}}</textarea>
                 </div>
                 <div class="mb-3">
                     <label for="instagram" class="form-label">Instagram</label>
@@ -41,3 +46,12 @@
     </div>
 </div>
 @endsection    
+@push('js')
+<script>
+ClassicEditor
+    .create(document.querySelector('#editor'))
+    .catch(error => {
+        console.error(error);
+    });
+</script>
+@endpush

@@ -49,7 +49,7 @@
                 </div>
             </div>
             <div class="card-footer">
-                <button type="submit" class="btn btn-primary btn-block">Save</button>
+                <button type="submit" class="btn btn-primary btn-sm">Save</button>
                 <a href="{{ route('client.index') }}" class="btn btn-secondary btn-sm">Back</a>
             </div>
             </form>

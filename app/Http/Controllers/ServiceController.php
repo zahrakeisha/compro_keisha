@@ -73,8 +73,8 @@ class ServiceController extends Controller
      */
     public function show($slug)
     {
-        $service = Service::where('slug', $slug)->firstOrFail();
-        return view('services.show', compact('service'));
+        $serviceslug = Service::where('slug', $slug)->firstOrFail();
+        return view('frontend.service_detail', compact('serviceslug'));
     }
 
     /**
@@ -115,9 +115,9 @@ class ServiceController extends Controller
 
         $image = $dataeditservice->image;
         if ($request->hasFile('image')){
-           if ($dataeditservice->image){
-              \Storage::disk('public')->delete($dataeditservice->image);
-              }
+        //    if ($dataeditservice->image){
+        //       \Storage::disk('public')->delete($dataeditservice->image);
+        //       }
             $image = $request->file('image')->store('services', 'public');
         }
         $dataeditservice->update([

@@ -12,20 +12,26 @@
             <div class="card-body">
                 <div class="mb-3">
                     <label for="name" class="form-label">Name</label>
-                    <input type="text" name="name" id="name" class="form-control" value="{{$marketings->image}}"required>
+                    <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" value="{{$marketings->name}}">
+                    @error('name')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
                 <div class="mb-3">
                     <label for="phone" class="form-label">Phone</label>
-                    <input type="text" name="phone" id="phone" class="form-control" value="{{$marketings->image}}"required>
-                </div>
-                <div class="mb-3">
-                    <label for="possition" class="form-label">Possition</label>
-                    <input type="text" name="possition" id="possition" class="form-control" value="{{$marketings->image}}"required>
+                    <input type="text" name="phone" id="phone" class="form-control @error('phone') is-invalid @enderror" value="{{$marketings->phone}}">
+                    @error('phone')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
             </div>
             <div class="card-footer">
-                <button type="submit" class="btn btn-success btn-block">Update</button>
-                <a href="{{ route('marketing.index') }}" class="btn btn-secondary btn-block">Back</a>
+                <button type="submit" class="btn btn-success btn-sm">Update</button>
+                <a href="{{ route('marketing.index') }}" class="btn btn-secondary btn-sm">Back</a>
             </div>
             </form>
         </div>
